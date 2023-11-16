@@ -1,6 +1,8 @@
 import React from "react";
 import { LoginTotalComponent, Logo, LoginBox, TextDiv, TextInput, FlexBox } from "./style";
 import { FillButton } from "../../components/button";
+import kakao from "../../assets/login/kakao.png";
+import naver from "../../assets/login/naver.png";
 
 const Login = () => {
   return (
@@ -47,6 +49,33 @@ const Login = () => {
           </FlexBox>
         </FlexBox>
       </LoginBox>
+      <FillButton
+        backgroundColor="#FEE500"
+        borderRadius="6px"
+        fontSize="16px"
+        color="#000"
+        width="328px"
+        height="44px"
+        marginTop="36px"
+      >
+        <FlexBox>
+          <img src={kakao} alt="kakao" style={{ marginRight: "8px" }} />
+          카카오 로그인
+        </FlexBox>
+      </FillButton>
+      <FillButton
+        backgroundColor="#5AC466"
+        borderRadius="6px"
+        fontSize="16px"
+        width="328px"
+        height="44px"
+        marginTop="16px"
+      >
+        <FlexBox>
+          <img src={naver} alt="naver" style={{ marginRight: "8px" }} />
+          네이버 로그인
+        </FlexBox>
+      </FillButton>
     </LoginTotalComponent>
   );
 };
