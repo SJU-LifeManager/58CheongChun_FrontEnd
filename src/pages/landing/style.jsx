@@ -46,6 +46,7 @@ export const LandingBox = styled.div`
       margin-top: 12px;
     }
   }
+  //다른 공통 박스들 설정
   .commonBoxContent {
     display: flex;
     img {
@@ -67,6 +68,7 @@ export const LandingBox = styled.div`
   }
 `;
 
+// 랜딩페이지 아래에 있는 부분 스타일링
 export const LandingBoxBottom = styled(LandingBox)`
   width: 100%;
   height: 450px;
