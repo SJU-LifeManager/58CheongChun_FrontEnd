@@ -1,18 +1,34 @@
-import React from "react";
-import { LoginTotalComponent, Logo, LoginBox, TextDiv, TextInput, FlexBox } from "./style";
+import React, { useState } from "react";
+import {
+  LoginTotalComponent,
+  Logo,
+  LoginBox,
+  TextDiv,
+  TextInput,
+  FlexBox,
+  SignupToggleBar,
+} from "./style";
 import { FillButton } from "../../components/button";
 import kakao from "../../assets/login/kakao.png";
 import naver from "../../assets/login/naver.png";
-
+import { Link } from "react-router-dom";
 const Login = () => {
+  const [isToggle, setIsToggle] = useState(false);
+
+  const handleChangeToggle = () => {
+    setIsToggle(!isToggle);
+  };
+
   return (
     <LoginTotalComponent>
-      <Logo>
-        <div className="logo">
-          <p>오팔</p>
-          <p>청춘</p>
-        </div>
-      </Logo>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Logo>
+          <div className="logo">
+            <p>오팔</p>
+            <p>청춘</p>
+          </div>
+        </Logo>
+      </Link>
       <LoginBox>
         <FlexBox style={{ flexDirection: "column" }}>
           <TextDiv
@@ -43,7 +59,12 @@ const Login = () => {
             <TextDiv fontSize="14px" fontWeight="400">
               아이디 찾기
             </TextDiv>
-            <TextDiv fontSize="14px" fontWeight="400" style={{ marginLeft: "78px" }}>
+            <TextDiv
+              onClick={handleChangeToggle}
+              fontSize="14px"
+              fontWeight="400"
+              style={{ marginLeft: "78px", cursor: "pointer" }}
+            >
               회원가입
             </TextDiv>
           </FlexBox>
@@ -76,6 +97,47 @@ const Login = () => {
           네이버 로그인
         </FlexBox>
       </FillButton>
+      <SignupToggleBar isToggle={isToggle}>
+        <FlexBox style={{ flexDirection: "column" }}>
+          <FillButton
+            backgroundColor="#FFA7A7"
+            borderRadius="6px"
+            fontSize="16px"
+            width="328px"
+            height="44px"
+            marginTop="38px"
+          >
+            이메일로 시작하기
+          </FillButton>
+          <FillButton
+            backgroundColor="#FEE500"
+            borderRadius="6px"
+            fontSize="16px"
+            color="#000"
+            width="328px"
+            height="44px"
+            marginTop="16px"
+          >
+            <FlexBox>
+              <img src={kakao} alt="kakao" style={{ marginRight: "8px" }} />
+              카카오로 시작하기
+            </FlexBox>
+          </FillButton>
+          <FillButton
+            backgroundColor="#5AC466"
+            borderRadius="6px"
+            fontSize="16px"
+            width="328px"
+            height="44px"
+            marginTop="16px"
+          >
+            <FlexBox>
+              <img src={naver} alt="naver" style={{ marginRight: "8px" }} />
+              네이버로 시작하기
+            </FlexBox>
+          </FillButton>
+        </FlexBox>
+      </SignupToggleBar>
     </LoginTotalComponent>
   );
 };
