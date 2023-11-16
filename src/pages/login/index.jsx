@@ -8,9 +8,9 @@ import {
   FlexBox,
   SignupToggleBar,
 } from "./style";
-import { FillButton } from "../../components/button";
-import kakao from "../../assets/login/kakao.png";
-import naver from "../../assets/login/naver.png";
+import { FillButton } from "../../components/Button";
+import kakao from "../../assets/login/Kakao.png";
+import naver from "../../assets/login/Naver.png";
 import { Link } from "react-router-dom";
 const Login = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -116,7 +116,7 @@ const Login = () => {
             color="#000"
             width="328px"
             height="44px"
-            marginTop="16px"
+            marginTop="18px"
           >
             <FlexBox>
               <img src={kakao} alt="kakao" style={{ marginRight: "8px" }} />
@@ -129,7 +129,7 @@ const Login = () => {
             fontSize="16px"
             width="328px"
             height="44px"
-            marginTop="16px"
+            marginTop="18px"
           >
             <FlexBox>
               <img src={naver} alt="naver" style={{ marginRight: "8px" }} />
