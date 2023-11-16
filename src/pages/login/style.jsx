@@ -50,3 +50,21 @@ export const TextDiv = styled.div`
   margin: ${(props) => props.margin || "0px 0px 0px 0px"};
   font-size: ${(props) => props.fontSize || "16px"};
 `;
+
+export const TextInput = styled.input`
+  width: 280px;
+  height: 44px;
+  padding-left: 16px;
+  border-radius: 4px;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-family: "Pretendard";
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+  margin-top: ${(props) => props.marginTop || "0px"};
+  ::placeholder {
+    color: #979797;
+  }
+`;
