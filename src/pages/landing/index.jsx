@@ -71,10 +71,7 @@ const Landing = () => {
       <LandingBoxBottom backgroundImg={boxBottomBackgroundImg} marginTop="-1px">
         <FlexBox style={{ alignItems: "flex-end", height: "100%" }}>
           <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
-            <FillButton
-              backgroundColor="rgba(255, 167, 167, 0.93)"
-              style={{ marginBottom: "35px" }}
-            >
+            <FillButton backgroundColor="rgba(255, 167, 167, 0.93)" margin="0px 0px 35px 0px">
               오팔청춘 시작하기
             </FillButton>
           </Link>

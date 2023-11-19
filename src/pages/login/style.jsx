@@ -4,9 +4,11 @@ export const FlexBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: ${(props) => props.flexDirection || "row"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
-// 랜딩페이지 최상단 컴포넌트
+// 로그인페이지 최상단 컴포넌트
 export const LoginTotalComponent = styled.div`
   width: 430px;
   position: relative;
@@ -19,7 +21,7 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   .logo {
-    margin-top: 80px;
+    margin-top: 9vh;
     display: flex;
     font-family: "Retrosans";
     font-size: 40px;
@@ -37,7 +39,7 @@ export const Logo = styled.div`
 export const LoginBox = styled.div`
   width: 328px;
   height: 276px;
-  margin-top: 84px;
+  margin-top: 8vh;
   border-radius: 16px;
   background: #fff;
   box-shadow: 0px 0px 3px 0px #ffa7a7;
@@ -48,7 +50,7 @@ export const TextDiv = styled.div`
   font-family: "Pretendard";
   font-weight: ${(props) => props.fontWeight || "500"};
   line-height: ${(props) => props.lineHeight || "18px"};
-  margin: ${(props) => props.margin || "0px 0px 0px 0px"};
+  margin: ${(props) => props.margin || "0px"};
   font-size: ${(props) => props.fontSize || "16px"};
 `;
 
@@ -78,6 +80,17 @@ export const SignupToggleBar = styled.div`
   background-color: #fff;
   box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s ease-in-out;
-  height: ${(props) => (props.isToggle ? "300px" : "0px")};
+  height: ${(props) => (props.isToggle ? "326px" : "0px")};
   visibility: ${(props) => (props.isToggle ? "visible" : "hidden")};
+`;
+
+export const ExitButton = styled.button`
+  align-self: flex-end;
+  margin: 5px 15px 0px 0px;
+  border: 1px solid gray;
+  width: 30px;
+  height: 30px;
+  border-radius: 40%;
+  font-size: 16px;
+  cursor: pointer;
 `;

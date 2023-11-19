@@ -7,6 +7,7 @@ import {
   TextInput,
   FlexBox,
   SignupToggleBar,
+  ExitButton,
 } from "./style";
 import { FillButton } from "../../components/Button";
 import kakao from "../../assets/login/Kakao.png";
@@ -30,7 +31,7 @@ const Login = () => {
         </Logo>
       </Link>
       <LoginBox>
-        <FlexBox style={{ flexDirection: "column" }}>
+        <FlexBox flexDirection="column">
           <TextDiv
             lineHeight="24px"
             margin="24px 0px 0px 24px"
@@ -47,15 +48,15 @@ const Login = () => {
             width="304px"
             height="44px"
             borderRadius="6px"
-            style={{ marginTop: "18px" }}
+            margin="18px 0px 0px 0px"
           >
             로그인
           </FillButton>
-          <FlexBox style={{ marginTop: "20px" }}>
+          <FlexBox margin="20px 0px 0px 0px">
             <TextDiv fontSize="14px" fontWeight="400">
               비밀번호 찾기
             </TextDiv>
-            <TextDiv style={{ margin: "0px 7px" }}>|</TextDiv>
+            <TextDiv margin="0px 7px">|</TextDiv>
             <TextDiv fontSize="14px" fontWeight="400">
               아이디 찾기
             </TextDiv>
@@ -63,7 +64,8 @@ const Login = () => {
               onClick={handleChangeToggle}
               fontSize="14px"
               fontWeight="400"
-              style={{ marginLeft: "78px", cursor: "pointer" }}
+              margin="0px 0px 0px 78px"
+              style={{ cursor: "pointer" }}
             >
               회원가입
             </TextDiv>
@@ -77,7 +79,7 @@ const Login = () => {
         color="#000"
         width="328px"
         height="44px"
-        marginTop="36px"
+        margin="36px 0px 0px 0px"
       >
         <FlexBox>
           <img src={kakao} alt="kakao" style={{ marginRight: "8px" }} />
@@ -90,7 +92,7 @@ const Login = () => {
         fontSize="16px"
         width="328px"
         height="44px"
-        marginTop="16px"
+        margin="16px 0px 0px 0px"
       >
         <FlexBox>
           <img src={naver} alt="naver" style={{ marginRight: "8px" }} />
@@ -98,17 +100,20 @@ const Login = () => {
         </FlexBox>
       </FillButton>
       <SignupToggleBar isToggle={isToggle}>
-        <FlexBox style={{ flexDirection: "column" }}>
-          <FillButton
-            backgroundColor="#FFA7A7"
-            borderRadius="6px"
-            fontSize="16px"
-            width="328px"
-            height="44px"
-            marginTop="38px"
-          >
-            이메일로 시작하기
-          </FillButton>
+        <FlexBox flexDirection="column">
+          <ExitButton onClick={handleChangeToggle}>X</ExitButton>
+          <Link to="/emailSignup" style={{ textDecoration: "none", color: "black" }}>
+            <FillButton
+              backgroundColor="#FFA7A7"
+              borderRadius="6px"
+              fontSize="16px"
+              width="328px"
+              height="44px"
+              margin="32px 0px 0px 0px"
+            >
+              이메일로 시작하기
+            </FillButton>
+          </Link>
           <FillButton
             backgroundColor="#FEE500"
             borderRadius="6px"
@@ -116,7 +121,7 @@ const Login = () => {
             color="#000"
             width="328px"
             height="44px"
-            marginTop="18px"
+            margin="18px 0px 0px 0px"
           >
             <FlexBox>
               <img src={kakao} alt="kakao" style={{ marginRight: "8px" }} />
@@ -129,7 +134,7 @@ const Login = () => {
             fontSize="16px"
             width="328px"
             height="44px"
-            marginTop="18px"
+            margin="18px 0px 0px 0px"
           >
             <FlexBox>
               <img src={naver} alt="naver" style={{ marginRight: "8px" }} />

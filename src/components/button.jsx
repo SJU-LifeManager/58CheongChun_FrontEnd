@@ -13,5 +13,5 @@ export const FillButton = styled.button`
   font-size: ${(props) => props.fontSize || "22px"};
   width: ${(props) => props.width || "328px"};
   height: ${(props) => props.height || "48px"};
-  margin-top: ${(props) => props.marginTop || "0px"};
+  margin: ${(props) => props.margin || "0px"};
 `;
