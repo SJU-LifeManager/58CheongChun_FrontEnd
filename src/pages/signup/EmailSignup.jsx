@@ -70,7 +70,7 @@ const EmailSignup = () => {
 
   const nextSignup = () => {
     if (isEmail && isPassword && isSamePassword) {
-      navigate("/");
+      navigate("/emailSignup/Tos");
     } else {
       alert("형식에 맞게 정확히 입력해주세요.");
     }
@@ -103,6 +103,7 @@ const EmailSignup = () => {
         marginTop="8px"
         name="password"
         value={password}
+        autoComplete="off"
       />
       <TextInput
         onChange={handleChangeCheckPassword}
@@ -110,6 +111,7 @@ const EmailSignup = () => {
         marginTop="8px"
         name="checkPassword"
         value={checkPassword}
+        autoComplete="off"
       />
       {isSamePassword ? (
         <CheckPasswordImg src={CheckButton} alt="check" />

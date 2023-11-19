@@ -80,9 +80,19 @@ export const NextButton = styled.button`
 `;
 
 export const CheckPasswordImg = styled.img`
-  width: 20px;
-  height: 20px;
+  width: ${(props) => props.width || "20px"};
+  height: ${(props) => props.height || "20px"};
   margin-top: -32px;
   align-self: flex-end;
   margin-right: 40px;
+  cursor: ${(props) => props.cursor || "none"};
+`;
+
+export const TosBox = styled.div`
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 30px;
+  display: flex;
+  margin: ${(props) => props.margin || "0px"};
 `;
