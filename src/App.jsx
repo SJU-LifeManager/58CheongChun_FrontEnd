@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Landing from "./pages/landing";
-import Login from "./pages/login";
+import Landing from "./pages/landing/LandingPage";
+import Login from "./pages/login/LoginPage";
 import EmailSignup from "./pages/signup/EmailSignup";
 import TermsOfService from "./pages/signup/TermsOfService";
 
