@@ -43,6 +43,10 @@ export const TextLabel = styled.div`
   font-size: ${(props) => props.fontSize || "28px"};
   margin: ${(props) => props.margin || "0px"};
 `;
+export const IsSizeTextLabel = styled(TextLabel)`
+  width: ${(props) => props.width || "140px"};
+  height: ${(props) => props.height || "21px"};
+`;
 
 export const TextInput = styled.input`
   width: 82%;
@@ -56,7 +60,9 @@ export const TextInput = styled.input`
   outline: none;
   border: none;
   padding-left: 24px;
-  margin-top: ${(props) => props.marginTop || "0px"};
+
+  margin: ${(props) => props.margin || "0px"};
+
   ::placeholder {
     color: #979797;
   }
@@ -76,7 +82,7 @@ export const NextButton = styled.button`
   font-weight: 600;
   line-height: 20px;
   background-color: ${(props) => props.backgroundColor || "#8a8a8a"};
-  margin-top: ${(props) => props.marginTop || "0px"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
 export const CheckPasswordImg = styled.img`

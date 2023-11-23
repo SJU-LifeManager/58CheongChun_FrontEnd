@@ -13,12 +13,12 @@ const PhoneSignup = () => {
   const { state } = useLocation();
   const [userInfo, setUserInfo] = useState({
     ...state.userInfo,
-    phone: "",
+    phoneNumber: "",
     checkNumber: "",
   });
   const [certifyResult, setCertifyResult] = useState({});
 
-  const { phone, checkNumber } = userInfo;
+  const { phoneNumber, checkNumber } = userInfo;
 
   const handleChangePhone = (e) => {
     const { name, value } = e.target;
@@ -65,7 +65,7 @@ const PhoneSignup = () => {
     } else {
       if (certifyResult.certifyCode === userInfo.checkNumber) {
         alert("인증되었습니다.");
-        navigate("/signup/additionInfo");
+        navigate("/signup/additionInfo", { state: { userInfo: userInfo } });
       } else {
         alert("인증코드가 올바르지 않습니다.");
       }
@@ -87,32 +87,32 @@ const PhoneSignup = () => {
         onChange={handleChangePhone}
         type="text"
         placeholder="휴대폰 번호 ( 010-0000-0000 형식 ) "
-        marginTop="94px"
-        name="phone"
-        value={phone}
+        margin="94px 0px 0px 0px"
+        name="phoneNumber"
+        value={phoneNumber}
       />
       <TextInput
         onChange={handleChangeCheckNumber}
         type="text"
         placeholder="인증번호"
-        marginTop="8px"
+        margin="8px 0px 0px 0px"
         name="checkNumber"
         value={checkNumber}
       />
       {!isPhone ? (
-        <NextButton onClick={phoneCertify} backgroundColor="#8a8a8a" marginTop="203px">
+        <NextButton onClick={phoneCertify} backgroundColor="#8a8a8a" margin="203px 0px 0px 0px">
           인증번호 받기
         </NextButton>
       ) : !isReceiveNumber ? (
-        <NextButton onClick={phoneCertify} backgroundColor="#FFA7A7" marginTop="203px">
+        <NextButton onClick={phoneCertify} backgroundColor="#FFA7A7" margin="203px 0px 0px 0px">
           인증번호 받기
         </NextButton>
       ) : userInfo.checkNumber === "" ? (
-        <NextButton onClick={checkCertify} backgroundColor="#8a8a8a" marginTop="203px">
+        <NextButton onClick={checkCertify} backgroundColor="#8a8a8a" margin="203px 0px 0px 0px">
           다음
         </NextButton>
       ) : (
-        <NextButton onClick={checkCertify} backgroundColor="#FFA7A7" marginTop="203px">
+        <NextButton onClick={checkCertify} backgroundColor="#FFA7A7" margin="203px 0px 0px 0px">
           다음
         </NextButton>
       )}

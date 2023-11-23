@@ -11,6 +11,6 @@ export const LoginApi = (payload) => {
 
 export const PhoneCertifyApi = (payload) => {
   return axios.post(`${url}/message/certify`, {
-    phoneNumber: payload.phone,
+    phoneNumber: payload.phoneNumber,
   });
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { EmailSignupTotalComponent, Logo, TextLabel } from "./style";
+import { EmailSignupTotalComponent, IsSizeTextLabel, Logo, TextLabel } from "./style";
 import { Link } from "react-router-dom";
 
 const FirstAdditionSignup = () => {
@@ -14,8 +14,11 @@ const FirstAdditionSignup = () => {
         </Logo>
       </Link>
       <div>
-        <TextLabel margin="32px 0px 0px 0px">서비스 이용을 위한 정보를</TextLabel>
-        <TextLabel>입력해 주세요.</TextLabel>
+        <TextLabel margin="32px 0px 0px 0px">반갑습니다!</TextLabel>
+        <TextLabel>회원님의 정보를 알려주세요.</TextLabel>
+      </div>
+      <div>
+        <IsSizeTextLabel>성별(필수)</IsSizeTextLabel>
       </div>
     </EmailSignupTotalComponent>
   );
