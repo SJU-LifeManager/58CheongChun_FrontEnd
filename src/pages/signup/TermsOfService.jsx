@@ -9,12 +9,13 @@ import {
   TextLabel,
   TosBox,
 } from "./style";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import blankCircleImg from "../../assets/signup/Ellipse.svg";
 import checkImg from "../../assets/signup/Check.svg";
 
 const TermsOfService = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const [isAllCheck, setIsAllCheck] = useState(false);
   const [isCheck1, setIsCheck1] = useState(false);
@@ -45,7 +46,7 @@ const TermsOfService = () => {
 
   const nextSignup = () => {
     if (isCheck1 && isCheck2 && isCheck3) {
-      navigate("/emailSignup/Tos");
+      navigate("/emailSignup/phoneSignup", { state: { userInfo: state.userInfo } });
     } else {
       alert("필수 약관을 모두 체크해주세요.");
     }
@@ -188,11 +189,11 @@ const TermsOfService = () => {
         </TextLabel>
       </TosBox>
       {isCheck1 && isCheck2 && isCheck3 ? (
-        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" marginTop="151px">
+        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" marginTop="121px">
           다음
         </NextButton>
       ) : (
-        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" marginTop="151px">
+        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" marginTop="121px">
           다음
         </NextButton>
       )}

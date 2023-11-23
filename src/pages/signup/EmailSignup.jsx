@@ -69,10 +69,14 @@ const EmailSignup = () => {
   };
 
   const nextSignup = () => {
-    if (isEmail && isPassword && isSamePassword) {
-      navigate("/emailSignup/Tos");
+    if (!isEmail) {
+      alert("올바른 이메일 형식을 입력해주세요.");
     } else {
-      alert("형식에 맞게 정확히 입력해주세요.");
+      if (isPassword && isSamePassword) {
+        navigate("/emailSignup/Tos", { state: { userInfo: userInfo } });
+      } else {
+        alert("비밀번호가 동일하지 않습니다.다시 입력해주세요.");
+      }
     }
   };
 
@@ -92,6 +96,7 @@ const EmailSignup = () => {
       </div>
       <TextInput
         onChange={handleChangeEmail}
+        type="text"
         placeholder="이메일"
         marginTop="61px"
         name="email"
@@ -99,6 +104,7 @@ const EmailSignup = () => {
       />
       <TextInput
         onChange={handleChangePassword}
+        type="password"
         placeholder="비밀번호"
         marginTop="8px"
         name="password"
@@ -107,6 +113,7 @@ const EmailSignup = () => {
       />
       <TextInput
         onChange={handleChangeCheckPassword}
+        type="password"
         placeholder="비밀번호 확인"
         marginTop="8px"
         name="checkPassword"
