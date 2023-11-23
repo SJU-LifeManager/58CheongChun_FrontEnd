@@ -16,9 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/emailSignup" element={<EmailSignup />}></Route>
-          <Route path="/emailSignup/Tos" element={<TermsOfService />}></Route>
-          <Route path="/emailSignup/phoneSignup" element={<PhoneSignup />}></Route>
+          <Route path="/signup/email" element={<EmailSignup />}></Route>
+          <Route path="/signup/Tos" element={<TermsOfService />}></Route>
+          <Route path="/signup/phoneNumber" element={<PhoneSignup />}></Route>
           {/* <Route path="/emailSignup/addition1" element={<Addition1Signup />}></Route> */}
         </Routes>
       </Router>

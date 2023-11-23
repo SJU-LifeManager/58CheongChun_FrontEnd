@@ -149,7 +149,7 @@ const Login = () => {
       <SignupToggleBar isToggle={isToggle}>
         <FlexBox flexDirection="column">
           <ExitButton onClick={handleChangeToggle}>X</ExitButton>
-          <Link to="/emailSignup" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/signup/email" style={{ textDecoration: "none", color: "black" }}>
             <FillButton
               backgroundColor="#FFA7A7"
               borderRadius="6px"
