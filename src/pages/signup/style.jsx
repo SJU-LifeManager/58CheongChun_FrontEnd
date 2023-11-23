@@ -20,7 +20,7 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   .logo {
-    margin-top: 80px;
+    margin-top: 9vh;
     display: flex;
     font-family: "Retrosans";
     font-size: 40px;

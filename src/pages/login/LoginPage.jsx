@@ -12,13 +12,44 @@ import {
 import { FillButton } from "../../components/Button";
 import kakao from "../../assets/login/Kakao.png";
 import naver from "../../assets/login/Naver.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginApi } from "../../apis/UserApi";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [isToggle, setIsToggle] = useState(false);
 
   const handleChangeToggle = () => {
     setIsToggle(!isToggle);
+  };
+
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = loginInfo;
+
+  const handleChangeLoginInfo = (e) => {
+    const { name, value } = e.target;
+    setLoginInfo({
+      ...loginInfo,
+      [name]: value,
+    });
+  };
+
+  const handleLogin = async (loginInfo) => {
+    try {
+      await LoginApi(loginInfo).then((res) => {
+        console.log(res);
+        if (res.data.code === 200) {
+          alert("로그인에 성공하셨습니다.");
+          navigate("/");
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -42,14 +73,29 @@ const Login = () => {
           >
             로그인
           </TextDiv>
-          <TextInput placeholder="아이디" marginTop="12px" />
-          <TextInput placeholder="비밀번호" marginTop="8px" />
+          <TextInput
+            onChange={handleChangeLoginInfo}
+            type="text"
+            placeholder="아이디"
+            marginTop="12px"
+            name="email"
+            value={email}
+          />
+          <TextInput
+            onChange={handleChangeLoginInfo}
+            type="password"
+            placeholder="비밀번호"
+            marginTop="8px"
+            name="password"
+            value={password}
+          />
           <FillButton
             backgroundColor="#FFA7A7"
             width="304px"
             height="44px"
             borderRadius="6px"
             margin="18px 0px 0px 0px"
+            onClick={handleLogin}
           >
             로그인
           </FillButton>
