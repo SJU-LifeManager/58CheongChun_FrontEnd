@@ -73,7 +73,7 @@ const EmailSignup = () => {
       alert("올바른 이메일 형식을 입력해주세요.");
     } else {
       if (isPassword && isSamePassword) {
-        navigate("/emailSignup/Tos", { state: { userInfo: userInfo } });
+        navigate("/signup/Tos", { state: { userInfo: userInfo } });
       } else {
         alert("비밀번호가 동일하지 않습니다.다시 입력해주세요.");
       }

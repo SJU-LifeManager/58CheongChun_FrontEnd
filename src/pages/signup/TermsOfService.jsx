@@ -46,7 +46,7 @@ const TermsOfService = () => {
 
   const nextSignup = () => {
     if (isCheck1 && isCheck2 && isCheck3) {
-      navigate("/emailSignup/phoneSignup", { state: { userInfo: state.userInfo } });
+      navigate("/signup/phoneNumber", { state: { userInfo: state.userInfo } });
     } else {
       alert("필수 약관을 모두 체크해주세요.");
     }
