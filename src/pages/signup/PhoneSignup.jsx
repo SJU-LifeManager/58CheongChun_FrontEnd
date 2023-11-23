@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { EmailSignupTotalComponent, Logo, NextButton, TextInput, TextLabel } from "./style";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PhoneCertifyApi } from "../../apis/UserApi";
 
 const PhoneSignup = () => {
+  const navigate = useNavigate();
+
   const [isPhone, setIsPhone] = useState(false);
-  const [isReceiveNumber, setIsReceiveNumber] = useState(true);
+  const [isReceiveNumber, setIsReceiveNumber] = useState(false);
 
   const { state } = useLocation();
   const [userInfo, setUserInfo] = useState({
@@ -14,9 +16,7 @@ const PhoneSignup = () => {
     phone: "",
     checkNumber: "",
   });
-  const [certifyResult, setCertifyResult] = useState({
-    certifyCode: "01234",
-  });
+  const [certifyResult, setCertifyResult] = useState({});
 
   const { phone, checkNumber } = userInfo;
 
@@ -64,7 +64,8 @@ const PhoneSignup = () => {
       alert("인증코드를 입력해주세요.");
     } else {
       if (certifyResult.certifyCode === userInfo.checkNumber) {
-        alert("인증완료");
+        alert("인증되었습니다.");
+        navigate("/signup/additionInfo");
       } else {
         alert("인증코드가 올바르지 않습니다.");
       }

@@ -2,7 +2,7 @@ import React from "react";
 import { EmailSignupTotalComponent, Logo, TextLabel } from "./style";
 import { Link } from "react-router-dom";
 
-const Addition1Signup = () => {
+const FirstAdditionSignup = () => {
   return (
     <EmailSignupTotalComponent>
       <Link to="/" style={{ textDecoration: "none", color: "black" }}>
@@ -21,4 +21,4 @@ const Addition1Signup = () => {
   );
 };
 
-export default Addition1Signup;
+export default FirstAdditionSignup;
