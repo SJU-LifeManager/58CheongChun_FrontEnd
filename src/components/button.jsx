@@ -14,4 +14,5 @@ export const FillButton = styled.button`
   width: ${(props) => props.width || "328px"};
   height: ${(props) => props.height || "48px"};
   margin: ${(props) => props.margin || "0px"};
+  box-shadow: ${(props) => props.boxShadow || null};
 `;

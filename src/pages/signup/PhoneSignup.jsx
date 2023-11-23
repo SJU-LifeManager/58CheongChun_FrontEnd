@@ -8,7 +8,7 @@ const PhoneSignup = () => {
   const navigate = useNavigate();
 
   const [isPhone, setIsPhone] = useState(false);
-  const [isReceiveNumber, setIsReceiveNumber] = useState(false);
+  const [isReceiveNumber, setIsReceiveNumber] = useState(true);
 
   const { state } = useLocation();
   const [userInfo, setUserInfo] = useState({
@@ -16,7 +16,9 @@ const PhoneSignup = () => {
     phoneNumber: "",
     checkNumber: "",
   });
-  const [certifyResult, setCertifyResult] = useState({});
+  const [certifyResult, setCertifyResult] = useState({
+    certifyCode: "00000",
+  });
 
   const { phoneNumber, checkNumber } = userInfo;
 

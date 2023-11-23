@@ -21,6 +21,7 @@ const EmailSignup = () => {
   const [isSamePassword, setIsSamePassword] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
+    idWithProvider: "LOCAL",
     email: "",
     password: "",
     checkPassword: "",

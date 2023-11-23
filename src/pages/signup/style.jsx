@@ -5,6 +5,7 @@ export const FlexBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: ${(props) => props.flexDirection || "row"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
 // 이메일회원가입 페이지 최상단 컴포넌트
@@ -44,14 +45,12 @@ export const TextLabel = styled.div`
   margin: ${(props) => props.margin || "0px"};
 `;
 export const IsSizeTextLabel = styled(TextLabel)`
-  width: ${(props) => props.width || "140px"};
+  width: ${(props) => props.width || "120px"};
   height: ${(props) => props.height || "21px"};
 `;
 
 export const TextInput = styled.input`
-  width: 82%;
   max-width: 350px;
-  height: 44px;
   border-radius: 4px;
   background: #fff;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
@@ -60,9 +59,10 @@ export const TextInput = styled.input`
   outline: none;
   border: none;
   padding-left: 24px;
-
+  width: ${(props) => props.width || "82%"};
+  height: ${(props) => props.height || "44px"};
   margin: ${(props) => props.margin || "0px"};
-
+  font-size: ${(props) => props.fontSize || "16px"};
   ::placeholder {
     color: #979797;
   }
