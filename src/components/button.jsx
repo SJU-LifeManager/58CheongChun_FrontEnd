@@ -19,12 +19,9 @@ export const FillButton = styled.button`
 
 export const NoWidthHeightButton = styled.button`
   cursor: pointer;
-  width: auto;
-  height: auto;
+  padding: 3px 6px;
   text-align: center;
   font-family: "Pretendard";
-  font-weight: 600;
-  padding: 5px;
   border: none;
   border-radius: ${(props) => props.borderRadius || "10px"};
   color: ${(props) => props.color || "#fff"};

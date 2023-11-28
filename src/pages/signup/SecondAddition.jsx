@@ -43,21 +43,138 @@ const SecondAddition = () => {
         </TextLabel>
         <GridBox>
           {userInfo.hobby === "HIKE" ? (
-            <NoWidthHeightButton backgroundColor="#FFA7A7" fontSize="16px">
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
               등산
             </NoWidthHeightButton>
           ) : (
-            <NoWidthHeightButton backgroundColor="#949494" fontSize="16px">
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
               등산
             </NoWidthHeightButton>
           )}
           {userInfo.hobby === "HIKE" ? (
-            <NoWidthHeightButton backgroundColor="#FFA7A7" fontSize="16px">
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
               수다
             </NoWidthHeightButton>
           ) : (
-            <NoWidthHeightButton backgroundColor="#949494" fontSize="16px">
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
               수다
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              맛집탐방
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              맛집탐방
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              여행
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              여행
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              야구 관람
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              야구 관람
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              악기 연주
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              악기 연주
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              요리
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              요리
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              드라이브
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              드라이브
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              산책
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              산책
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              전시 관람
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              전시 관람
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              독서
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              독서
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              운동
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              운동
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              미술
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              미술
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              재테크
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              재테크
+            </NoWidthHeightButton>
+          )}
+          {userInfo.hobby === "HIKE" ? (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#FFA7A7" fontSize="16px">
+              사진 촬영
+            </NoWidthHeightButton>
+          ) : (
+            <NoWidthHeightButton margin="2px 6px" backgroundColor="#949494" fontSize="16px">
+              사진 촬영
             </NoWidthHeightButton>
           )}
         </GridBox>
