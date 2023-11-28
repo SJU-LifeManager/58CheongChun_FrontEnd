@@ -102,3 +102,18 @@ export const TosBox = styled.div`
   display: flex;
   margin: ${(props) => props.margin || "0px"};
 `;
+
+export const FullWidthDivBox = styled.div`
+  width: 100%;
+  min-width: 330px;
+  padding: 10px;
+  height: 100px;
+  margin: ${(props) => props.margin || "0px"};
+`;
+
+export const GridBox = styled.div`
+  display: grid;
+  padding: 10px 20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+`;

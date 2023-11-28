@@ -16,3 +16,21 @@ export const FillButton = styled.button`
   margin: ${(props) => props.margin || "0px"};
   box-shadow: ${(props) => props.boxShadow || null};
 `;
+
+export const NoWidthHeightButton = styled.button`
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: 600;
+  padding: 5px;
+  border: none;
+  border-radius: ${(props) => props.borderRadius || "10px"};
+  color: ${(props) => props.color || "#fff"};
+  background-color: ${(props) => props.backgroundColor || null};
+  font-weight: ${(props) => props.fontWeight || "600"};
+  font-size: ${(props) => props.fontSize || "22px"};
+  margin: ${(props) => props.margin || "0px"};
+  box-shadow: ${(props) => props.boxShadow || null};
+`;
