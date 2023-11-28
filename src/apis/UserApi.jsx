@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:8080";
+const url = "http://3.38.224.139:8080";
 
 export const LoginApi = (payload) => {
   return axios.post(`${url}/login`, {
@@ -9,9 +9,9 @@ export const LoginApi = (payload) => {
   });
 };
 
-export const PhoneCertifyApi = (payload) => {
+export const PhoneCertifyApi = (userInfo) => {
   return axios.post(`${url}/message/certify`, {
-    phoneNumber: payload.phoneNumber,
+    phoneNumber: userInfo.phoneNumber,
   });
 };
 

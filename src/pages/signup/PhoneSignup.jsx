@@ -8,7 +8,7 @@ const PhoneSignup = () => {
   const navigate = useNavigate();
 
   const [isPhone, setIsPhone] = useState(false);
-  const [isReceiveNumber, setIsReceiveNumber] = useState(true);
+  const [isReceiveNumber, setIsReceiveNumber] = useState(false);
 
   const { state } = useLocation();
   const [userInfo, setUserInfo] = useState({
@@ -16,9 +16,7 @@ const PhoneSignup = () => {
     phoneNumber: "",
     checkNumber: "",
   });
-  const [certifyResult, setCertifyResult] = useState({
-    certifyCode: "00000",
-  });
+  const [certifyResult, setCertifyResult] = useState({});
 
   const { phoneNumber, checkNumber } = userInfo;
 
@@ -44,12 +42,15 @@ const PhoneSignup = () => {
     });
   };
 
-  const phoneCertify = async (userInfo) => {
+  const phoneCertify = async () => {
     if (isPhone) {
       try {
         await PhoneCertifyApi(userInfo).then((res) => {
           if (res.data.code === 200) {
             setCertifyResult(res.data.result);
+            alert("인증코드가 전송되었습니다.");
+          } else if (res.data.code === 500) {
+            alert("인증코드 전송에 실패하였습니다.");
           }
           setIsReceiveNumber(true);
         });

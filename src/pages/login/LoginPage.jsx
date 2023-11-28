@@ -38,7 +38,7 @@ const Login = () => {
     });
   };
 
-  const handleLogin = async (loginInfo) => {
+  const handleLogin = async () => {
     try {
       await LoginApi(loginInfo).then((res) => {
         console.log(res);
