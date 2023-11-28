@@ -9,9 +9,9 @@ export const LoginApi = (payload) => {
   });
 };
 
-export const PhoneCertifyApi = (userInfo) => {
+export const PhoneCertifyApi = (payload) => {
   return axios.post(`${url}/message/certify`, {
-    phoneNumber: userInfo.phoneNumber,
+    phoneNumber: payload.phoneNumber,
   });
 };
 
@@ -31,16 +31,18 @@ export const SignUpApi = (payload) => {
       relationType: payload.relationType,
       maritalStatus: payload.maritalStatus,
       hasChildren: payload.hasChildren,
-      personality: {
-        EI: payload.personalityEI,
-        SN: payload.personalitySN,
-        TF: payload.personalityTF,
-        JP: payload.personalityJP,
-      },
+      // personality: {
+      //   EI: payload.personalityEI,
+      //   SN: payload.personalitySN,
+      //   TF: payload.personalityTF,
+      //   JP: payload.personalityJP,
+      // },
+      personality: "ACTIVITY",
       hobby: payload.hobby,
     },
     birth: payload.birth,
     latitude: payload.latitude,
     longitude: payload.longitude,
+    imgUrl: payload.imgUrl,
   });
 };

@@ -2,8 +2,12 @@
 import React, { useState } from "react";
 import {
   EmailSignupTotalComponent,
+  FileInput,
   FlexBox,
+  FlexLabel,
+  GridBox,
   ImgBox,
+  ImgText,
   IsSizeTextLabel,
   Logo,
   NextButton,
@@ -13,6 +17,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FillButton } from "../../components/Button";
 import KakaoMap from "./KakaoMap";
+import UserImg from "../../assets/signup/User.png";
 
 const FirstAdditionSignup = () => {
   const navigate = useNavigate();
@@ -49,7 +54,7 @@ const FirstAdditionSignup = () => {
     latitude: "",
     longitude: "",
     address: "",
-    imgUrl: "",
+    imgUrl: UserImg,
   });
 
   const { memberName, birth, nickname, introduction, job, address } = userInfo;
@@ -558,14 +563,11 @@ const FirstAdditionSignup = () => {
             <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
               이미지(선택)
             </IsSizeTextLabel>
-            <ImgBox alt="사진" src={userInfo.imgUrl} />
-            <input
-              width="80px"
-              type="file"
-              id="profileImg"
-              accept="image/*"
-              onChange={setPreviewImg}
-            />
+            <FlexLabel htmlFor="profileImg">
+              <ImgBox alt="사진" src={userInfo.imgUrl} />
+              <FileInput type="file" id="profileImg" accept="image/*" onChange={setPreviewImg} />
+              <ImgText>프로필 이미지 첨부하기</ImgText>
+            </FlexLabel>
           </FlexBox>
 
           {is.isName &&

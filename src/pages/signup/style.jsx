@@ -68,6 +68,11 @@ export const TextInput = styled.input`
   }
 `;
 
+export const FileInput = styled.input`
+  width: 80px;
+  display: none;
+`;
+
 export const NextButton = styled.button`
   width: 90%;
   max-width: 400px;
@@ -99,7 +104,6 @@ export const TosBox = styled.div`
   align-items: center;
   width: 90%;
   height: 30px;
-  display: flex;
   margin: ${(props) => props.margin || "0px"};
 `;
 
@@ -114,6 +118,12 @@ export const FullWidthDivBox = styled.div`
 export const GridBox = styled.div`
   padding: 10px 18px;
 `;
+export const ImgText = styled(GridBox)`
+  font-weight: bold;
+  color: #0095f6;
+  cursor: pointer;
+  margin: 2px 0px 0px -8px;
+`;
 
 export const DoubleGridBox = styled.div`
   padding: 10px 18px;
@@ -122,7 +132,11 @@ export const DoubleGridBox = styled.div`
 `;
 
 export const ImgBox = styled.img`
-  width: ${(props) => props.width || "48px"};
-  height: ${(props) => props.height || "48px"};
+  width: ${(props) => props.width || "44px"};
+  height: ${(props) => props.height || "44px"};
   object-fit: cover;
+`;
+
+export const FlexLabel = styled.label`
+  display: flex;
 `;

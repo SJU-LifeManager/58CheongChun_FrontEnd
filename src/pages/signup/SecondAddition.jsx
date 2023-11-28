@@ -999,6 +999,7 @@ const SecondAddition = () => {
           회원가입
         </NextButton>
       )}
+      {console.log(userInfo)}
     </EmailSignupTotalComponent>
   );
 };
