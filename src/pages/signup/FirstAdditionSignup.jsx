@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   EmailSignupTotalComponent,
   FlexBox,
+  ImgBox,
   IsSizeTextLabel,
   Logo,
   NextButton,
@@ -48,6 +49,7 @@ const FirstAdditionSignup = () => {
     latitude: "",
     longitude: "",
     address: "",
+    imgUrl: "",
   });
 
   const { memberName, birth, nickname, introduction, job, address } = userInfo;
@@ -174,6 +176,17 @@ const FirstAdditionSignup = () => {
         isJob: true,
       });
     }
+  };
+
+  const setPreviewImg = (event) => {
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      setUserInfo({
+        ...userInfo,
+        imgUrl: event.target.result,
+      });
+    };
+    reader.readAsDataURL(event.target.files[0]);
   };
 
   const nextAdditionMove = () => {
@@ -329,7 +342,7 @@ const FirstAdditionSignup = () => {
               fontSize="18px"
               width="178px"
               height="32px"
-              placeholder="거주지를 선택해주세요."
+              placeholder="거주지 선택 (클릭) "
               name="address"
               value={address}
               onClick={handleMapToggle}
@@ -541,6 +554,20 @@ const FirstAdditionSignup = () => {
               onChange={handleChangeJob}
             />
           </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              이미지(선택)
+            </IsSizeTextLabel>
+            <ImgBox alt="사진" src={userInfo.imgUrl} />
+            <input
+              width="80px"
+              type="file"
+              id="profileImg"
+              accept="image/*"
+              onChange={setPreviewImg}
+            />
+          </FlexBox>
+
           {is.isName &&
           is.isGender &&
           is.isBirth &&

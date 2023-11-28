@@ -120,3 +120,9 @@ export const DoubleGridBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
+
+export const ImgBox = styled.img`
+  width: ${(props) => props.width || "48px"};
+  height: ${(props) => props.height || "48px"};
+  object-fit: cover;
+`;
