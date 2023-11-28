@@ -112,5 +112,11 @@ export const FullWidthDivBox = styled.div`
 `;
 
 export const GridBox = styled.div`
-  padding: 10px 16px;
+  padding: 10px 18px;
+`;
+
+export const DoubleGridBox = styled.div`
+  padding: 10px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
