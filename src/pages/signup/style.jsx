@@ -109,9 +109,9 @@ export const TosBox = styled.div`
 
 export const FullWidthDivBox = styled.div`
   width: 100%;
-  min-width: 330px;
-  padding: 10px;
-  height: 100px;
+  min-width: 345px;
+  padding: 5px 10px 0px;
+  height: 120px;
   margin: ${(props) => props.margin || "0px"};
 `;
 

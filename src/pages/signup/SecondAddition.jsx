@@ -482,7 +482,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "HIKE" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="등산"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -492,7 +492,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="등산"
               backgroundColor="#949494"
               fontSize="16px"
@@ -503,7 +503,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "TALK" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="수다"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -513,7 +513,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="수다"
               backgroundColor="#949494"
               fontSize="16px"
@@ -524,7 +524,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "EAT" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="맛집탐방"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -534,7 +534,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="맛집탐방"
               backgroundColor="#949494"
               fontSize="16px"
@@ -545,7 +545,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "TRAVEL" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="여행"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -555,7 +555,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="여행"
               backgroundColor="#949494"
               fontSize="16px"
@@ -566,7 +566,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "WATCH_BASEBALL" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="야구관람"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -576,7 +576,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="야구관람"
               backgroundColor="#949494"
               fontSize="16px"
@@ -587,7 +587,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "MUSICAL_INSTRUMENT" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="악기연주"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -597,7 +597,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="악기연주"
               backgroundColor="#949494"
               fontSize="16px"
@@ -608,7 +608,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "COOK" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="요리"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -618,7 +618,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="요리"
               backgroundColor="#949494"
               fontSize="16px"
@@ -629,7 +629,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "DRIVE" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="드라이브"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -639,7 +639,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="드라이브"
               backgroundColor="#949494"
               fontSize="16px"
@@ -650,7 +650,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "WALK" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="산책"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -660,7 +660,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="산책"
               backgroundColor="#949494"
               fontSize="16px"
@@ -671,7 +671,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "EXHIBITION" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="전시관람"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -681,7 +681,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="전시관람"
               backgroundColor="#949494"
               fontSize="16px"
@@ -692,7 +692,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "BOOK" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="독서"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -702,7 +702,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="독서"
               backgroundColor="#949494"
               fontSize="16px"
@@ -713,7 +713,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "WORK_OUT" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="운동"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -723,7 +723,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="운동"
               backgroundColor="#949494"
               fontSize="16px"
@@ -734,7 +734,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "FINE_ART" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="미술"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -744,7 +744,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="미술"
               backgroundColor="#949494"
               fontSize="16px"
@@ -755,7 +755,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "INVESTMENT" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="재테크"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -765,7 +765,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="재테크"
               backgroundColor="#949494"
               fontSize="16px"
@@ -776,7 +776,7 @@ const SecondAddition = () => {
           {userInfo.hobby === "PHOTOGRAPY" ? (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="사진촬영"
               backgroundColor="#FFA7A7"
               fontSize="16px"
@@ -786,7 +786,7 @@ const SecondAddition = () => {
           ) : (
             <NoWidthHeightButton
               onClick={handleChangeHobby}
-              margin="4px 6px"
+              margin="4px"
               value="사진촬영"
               backgroundColor="#949494"
               fontSize="16px"
@@ -796,7 +796,7 @@ const SecondAddition = () => {
           )}
         </GridBox>
       </FullWidthDivBox>
-      <FullWidthDivBox margin="32px 0px 0px 0px">
+      <FullWidthDivBox margin="40px 0px 0px 0px">
         <TextLabel fontSize="18px" margin="0px 0px 0px 30px">
           원하는 친구(1개 선택)
         </TextLabel>
@@ -993,19 +993,19 @@ const SecondAddition = () => {
         </GridBox>
       </FullWidthDivBox>
       {!is.isPersonalityEI || !is.isPersonalitySN || !is.isPersonalityTF || !is.isPersonalityJP ? (
-        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 0px 0px">
+        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 34px 0px">
           회원가입
         </NextButton>
       ) : !is.isHobby ? (
-        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 0px 0px">
+        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 34px 0px">
           회원가입
         </NextButton>
       ) : !is.isRelationType ? (
-        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 0px 0px">
+        <NextButton onClick={SignUp} backgroundColor="#8a8a8a" margin="46px 0px 34px 0px">
           회원가입
         </NextButton>
       ) : (
-        <NextButton onClick={SignUp} backgroundColor="#FFA7A7" margin="46px 0px 0px 0px">
+        <NextButton onClick={SignUp} backgroundColor="#FFA7A7" margin="46px 0px 34px 0px">
           회원가입
         </NextButton>
       )}
