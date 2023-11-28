@@ -21,6 +21,7 @@ const EmailSignup = () => {
   const [isSamePassword, setIsSamePassword] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
+    idWithProvider: "LOCAL",
     email: "",
     password: "",
     checkPassword: "",
@@ -95,10 +96,11 @@ const EmailSignup = () => {
         <TextLabel>입력해 주세요.</TextLabel>
       </div>
       <TextInput
+        autoComplete="off"
         onChange={handleChangeEmail}
         type="text"
         placeholder="이메일"
-        marginTop="61px"
+        margin="61px 0px 0px 0px"
         name="email"
         value={email}
       />
@@ -106,7 +108,7 @@ const EmailSignup = () => {
         onChange={handleChangePassword}
         type="password"
         placeholder="비밀번호"
-        marginTop="8px"
+        margin="8px 0px 0px 0px"
         name="password"
         value={password}
         autoComplete="off"
@@ -115,7 +117,7 @@ const EmailSignup = () => {
         onChange={handleChangeCheckPassword}
         type="password"
         placeholder="비밀번호 확인"
-        marginTop="8px"
+        margin="8px 0px 0px 0px"
         name="checkPassword"
         value={checkPassword}
         autoComplete="off"
@@ -126,11 +128,11 @@ const EmailSignup = () => {
         <CheckPasswordImg src={Xbutton} alt="X" />
       )}
       {isEmail && isPassword && isSamePassword ? (
-        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" marginTop="151px">
+        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" margin="151px 0px 0px 0px">
           다음
         </NextButton>
       ) : (
-        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" marginTop="151px">
+        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" margin="151px 0px 0px 0px">
           다음
         </NextButton>
       )}

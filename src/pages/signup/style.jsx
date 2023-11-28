@@ -5,6 +5,7 @@ export const FlexBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: ${(props) => props.flexDirection || "row"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
 // 이메일회원가입 페이지 최상단 컴포넌트
@@ -43,11 +44,13 @@ export const TextLabel = styled.div`
   font-size: ${(props) => props.fontSize || "28px"};
   margin: ${(props) => props.margin || "0px"};
 `;
+export const IsSizeTextLabel = styled(TextLabel)`
+  width: ${(props) => props.width || "120px"};
+  height: ${(props) => props.height || "21px"};
+`;
 
 export const TextInput = styled.input`
-  width: 82%;
   max-width: 350px;
-  height: 44px;
   border-radius: 4px;
   background: #fff;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
@@ -56,10 +59,18 @@ export const TextInput = styled.input`
   outline: none;
   border: none;
   padding-left: 24px;
-  margin-top: ${(props) => props.marginTop || "0px"};
+  width: ${(props) => props.width || "82%"};
+  height: ${(props) => props.height || "44px"};
+  margin: ${(props) => props.margin || "0px"};
+  font-size: ${(props) => props.fontSize || "16px"};
   ::placeholder {
     color: #979797;
   }
+`;
+
+export const FileInput = styled.input`
+  width: 80px;
+  display: none;
 `;
 
 export const NextButton = styled.button`
@@ -76,7 +87,7 @@ export const NextButton = styled.button`
   font-weight: 600;
   line-height: 20px;
   background-color: ${(props) => props.backgroundColor || "#8a8a8a"};
-  margin-top: ${(props) => props.marginTop || "0px"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
 export const CheckPasswordImg = styled.img`
@@ -93,6 +104,39 @@ export const TosBox = styled.div`
   align-items: center;
   width: 90%;
   height: 30px;
-  display: flex;
   margin: ${(props) => props.margin || "0px"};
+`;
+
+export const FullWidthDivBox = styled.div`
+  width: 100%;
+  min-width: 345px;
+  padding: 5px 10px 0px;
+  height: 120px;
+  margin: ${(props) => props.margin || "0px"};
+`;
+
+export const GridBox = styled.div`
+  padding: 10px 18px;
+`;
+export const ImgText = styled(GridBox)`
+  font-weight: bold;
+  color: #0095f6;
+  cursor: pointer;
+  margin: 2px 0px 0px -8px;
+`;
+
+export const DoubleGridBox = styled.div`
+  padding: 10px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const ImgBox = styled.img`
+  width: ${(props) => props.width || "44px"};
+  height: ${(props) => props.height || "44px"};
+  object-fit: cover;
+`;
+
+export const FlexLabel = styled.label`
+  display: flex;
 `;

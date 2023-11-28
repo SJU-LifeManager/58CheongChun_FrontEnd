@@ -189,11 +189,11 @@ const TermsOfService = () => {
         </TextLabel>
       </TosBox>
       {isCheck1 && isCheck2 && isCheck3 ? (
-        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" marginTop="121px">
+        <NextButton onClick={nextSignup} backgroundColor="#FFA7A7" margin="121px 0px 0px 0px">
           다음
         </NextButton>
       ) : (
-        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" marginTop="121px">
+        <NextButton onClick={nextSignup} backgroundColor="#8a8a8a" margin="121px 0px 0px 0px">
           다음
         </NextButton>
       )}
