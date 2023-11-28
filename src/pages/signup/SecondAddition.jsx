@@ -245,7 +245,7 @@ const SecondAddition = () => {
     }
   };
 
-  const SignUp = async (userInfo) => {
+  const SignUp = async () => {
     if (!is.isPersonalityEI || !is.isPersonalitySN || !is.isPersonalityTF || !is.isPersonalityJP) {
       alert("성격항목을 모두 선택해주세요.");
     } else if (!is.isHobby) {
