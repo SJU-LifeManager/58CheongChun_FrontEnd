@@ -9,11 +9,12 @@ import {
   DoubleGridBox,
   NextButton,
 } from "./style";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { NoWidthHeightButton } from "../../components/Button";
 import { SignUpApi } from "../../apis/UserApi";
 
 const SecondAddition = () => {
+  const navigate = useNavigate();
   const [is, setIs] = useState({
     isPersonalityEI: false,
     isPersonalitySN: false,
@@ -256,6 +257,15 @@ const SecondAddition = () => {
       try {
         await SignUpApi(userInfo).then((res) => {
           console.log(res);
+          if (res.data.code === 409) {
+            alert("이미 존재하는 회원입니다.");
+          } else if (res.data.code === 400) {
+            alert("휴면 계정입니다.");
+          } else if (res.data.code === 500) {
+            alert("데이터베이스 저장에 실패하였습니다.");
+          } else if (res.data.code === 200) {
+            navigate("/");
+          }
         });
       } catch (err) {
         console.log(err);
@@ -999,7 +1009,6 @@ const SecondAddition = () => {
           회원가입
         </NextButton>
       )}
-      {console.log(userInfo)}
     </EmailSignupTotalComponent>
   );
 };
