@@ -7,6 +7,7 @@ export const FooterDiv = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100vw;
+  max-width: 430px;
   height: 44px;
   padding: 12px 16px;
   background-color: #ffeff5;

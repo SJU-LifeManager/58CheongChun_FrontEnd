@@ -7,6 +7,7 @@ export const HeaderDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  max-width: 430px;
   height: 48px;
   border-top: 1px solid #d9d9d9;
   border-bottom: 1px solid #d9d9d9;
