@@ -96,6 +96,7 @@ const EmailSignup = () => {
         <TextLabel>입력해 주세요.</TextLabel>
       </div>
       <TextInput
+        autoComplete="off"
         onChange={handleChangeEmail}
         type="text"
         placeholder="이메일"

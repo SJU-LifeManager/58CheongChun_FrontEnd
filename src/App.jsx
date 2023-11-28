@@ -7,6 +7,7 @@ import EmailSignup from "./pages/signup/EmailSignup";
 import TermsOfService from "./pages/signup/TermsOfService";
 import PhoneSignup from "./pages/signup/PhoneSignup";
 import FirstAdditionSignup from "./pages/signup/FirstAdditionSignup";
+import SecondAddition from "./pages/signup/SecondAddition";
 function App() {
   return (
     <div
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signup/Tos" element={<TermsOfService />}></Route>
           <Route path="/signup/phoneNumber" element={<PhoneSignup />}></Route>
           <Route path="/signup/additionInfo" element={<FirstAdditionSignup />}></Route>
+          <Route path="/signup/nextAdditionInfo" element={<SecondAddition />}></Route>
         </Routes>
       </Router>
     </div>

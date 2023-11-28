@@ -86,6 +86,7 @@ const PhoneSignup = () => {
       </Link>
       <TextLabel margin="32px 0px 0px 0px">휴대폰 인증을 해주세요.</TextLabel>
       <TextInput
+        autoComplete="off"
         onChange={handleChangePhone}
         type="text"
         placeholder="휴대폰 번호 ( 010-0000-0000 형식 ) "
@@ -94,6 +95,7 @@ const PhoneSignup = () => {
         value={phoneNumber}
       />
       <TextInput
+        autoComplete="off"
         onChange={handleChangeCheckNumber}
         type="text"
         placeholder="인증번호"

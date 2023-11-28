@@ -9,10 +9,12 @@ import {
   TextInput,
   TextLabel,
 } from "./style";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FillButton } from "../../components/Button";
+import KakaoMap from "./KakaoMap";
 
 const FirstAdditionSignup = () => {
+  const navigate = useNavigate();
   const [is, setIs] = useState({
     isName: false,
     isGender: false,
@@ -22,7 +24,14 @@ const FirstAdditionSignup = () => {
     isMarriage: false,
     isChildren: false,
     isJob: false,
+    isAddress: false,
   });
+
+  const [mapToggle, setMapToggle] = useState(false);
+
+  const handleMapToggle = () => {
+    setMapToggle(!mapToggle);
+  };
 
   const { state } = useLocation();
   const [userInfo, setUserInfo] = useState({
@@ -36,10 +45,12 @@ const FirstAdditionSignup = () => {
     birth: "",
     maritalStatus: "",
     hasChildren: "",
+    latitude: "",
+    longitude: "",
+    address: "",
   });
-  // console.log(userInfo);
 
-  const { memberName, birth, nickname, introduction, job } = userInfo;
+  const { memberName, birth, nickname, introduction, job, address } = userInfo;
 
   const handleChangeName = (e) => {
     const { name, value } = e.target;
@@ -165,324 +176,398 @@ const FirstAdditionSignup = () => {
     }
   };
 
+  const nextAdditionMove = () => {
+    if (!is.isName) {
+      alert("이름을 입력해주세요.");
+    } else if (!is.isGender) {
+      alert("성별을 선택해주세요.");
+    } else if (!is.isBirth) {
+      alert("생년월일을 적어주세요.");
+    } else if (!is.isAddress) {
+      alert("거주지를 선택해주세요.");
+    } else if (!is.isNickname) {
+      alert("활동명을 적어주세요.");
+    } else if (!is.isIntroduction) {
+      alert("간단한 소개글을 적어주세요.");
+    } else if (!is.isMarriage) {
+      alert("결혼여부를 선택해주세요.");
+    } else if (!is.isChildren) {
+      alert("자녀유무를 선택해주세요.");
+    } else if (!is.isJob) {
+      alert("직장을 적어주세요.");
+    } else {
+      navigate("/signup/nextAdditionInfo", { state: { userInfo: userInfo } });
+    }
+  };
+
   return (
     <EmailSignupTotalComponent>
-      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-        <Logo>
-          <div className="logo">
-            <p>오팔</p>
-            <p>청춘</p>
+      {mapToggle ? (
+        <KakaoMap
+          handleMapToggle={handleMapToggle}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+          is={is}
+          setIs={setIs}
+        />
+      ) : (
+        <>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Logo>
+              <div className="logo">
+                <p>오팔</p>
+                <p>청춘</p>
+              </div>
+            </Logo>
+          </Link>
+          <div>
+            <TextLabel margin="32px 0px 0px 0px">반갑습니다!</TextLabel>
+            <TextLabel>회원님의 정보를 알려주세요.</TextLabel>
           </div>
-        </Logo>
-      </Link>
-      <div>
-        <TextLabel margin="32px 0px 0px 0px">반갑습니다!</TextLabel>
-        <TextLabel>회원님의 정보를 알려주세요.</TextLabel>
-      </div>
-      <FlexBox margin="42px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          이름
-        </IsSizeTextLabel>
-        <TextInput
-          fontSize="18px"
-          width="178px"
-          height="32px"
-          placeholder="이름을 입력하세요."
-          name="memberName"
-          value={memberName}
-          onChange={handleChangeName}
-        />
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          성별
-        </IsSizeTextLabel>
-        {userInfo.gender === "MALE" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickGender}
-            value="남성"
-          >
-            남성
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickGender}
-            value="남성"
-          >
-            남성
-          </FillButton>
-        )}
-        {userInfo.gender === "FEMALE" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 13px"
-            onClick={handleClickGender}
-            value="여성"
-          >
-            여성
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 13px"
-            onClick={handleClickGender}
-            value="여성"
-          >
-            여성
-          </FillButton>
-        )}
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          생년월일
-        </IsSizeTextLabel>
-        <TextInput
-          fontSize="18px"
-          width="178px"
-          height="32px"
-          placeholder="주민번호 앞자리 입력."
-          name="birth"
-          value={birth}
-          onChange={handleChangeBirth}
-        />
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          거주지
-        </IsSizeTextLabel>
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          활동명
-        </IsSizeTextLabel>
-        <TextInput
-          fontSize="18px"
-          width="178px"
-          height="32px"
-          placeholder="닉네임을 입력하세요."
-          name="nickname"
-          value={nickname}
-          onChange={handleChangeNickname}
-        />
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          자기소개
-        </IsSizeTextLabel>
-        <TextInput
-          fontSize="18px"
-          width="178px"
-          height="32px"
-          placeholder="간단한 자기소개"
-          name="introduction"
-          value={introduction}
-          onChange={handleChangeIntroduction}
-        />
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          결혼여부
-        </IsSizeTextLabel>
-        {userInfo.maritalStatus === "MARRIED" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickMarriage}
-            value="기혼"
-          >
-            기혼
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickMarriage}
-            value="기혼"
-          >
-            기혼
-          </FillButton>
-        )}
-        {userInfo.maritalStatus === "SINGLE" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 10px"
-            onClick={handleClickMarriage}
-            value="미혼"
-          >
-            미혼
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 10px"
-            onClick={handleClickMarriage}
-            value="미혼"
-          >
-            미혼
-          </FillButton>
-        )}
-        {userInfo.maritalStatus === "DIVORCED" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 10px"
-            onClick={handleClickMarriage}
-            value="기타"
-          >
-            기타
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="60px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 10px"
-            onClick={handleClickMarriage}
-            value="기타"
-          >
-            기타
-          </FillButton>
-        )}
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          자녀여부
-        </IsSizeTextLabel>
-        {userInfo.hasChildren === "YES" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickChildren}
-            value="있음"
-          >
-            있음
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            onClick={handleClickChildren}
-            value="있음"
-          >
-            있음
-          </FillButton>
-        )}
-        {userInfo.hasChildren === "NO" ? (
-          <FillButton
-            color="#fff"
-            backgroundColor="#FFA7A7"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 13px"
-            onClick={handleClickChildren}
-            value="없음"
-          >
-            없음
-          </FillButton>
-        ) : (
-          <FillButton
-            color="#1E1E1E"
-            backgroundColor="#fff"
-            borderRadius="4px"
-            width="95px"
-            height="32px"
-            fontSize="18px"
-            boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
-            margin="0px 0px 0px 13px"
-            onClick={handleClickChildren}
-            value="없음"
-          >
-            없음
-          </FillButton>
-        )}
-      </FlexBox>
-      <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
-        <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
-          직업
-        </IsSizeTextLabel>
-        <TextInput
-          fontSize="18px"
-          width="178px"
-          height="32px"
-          placeholder="직업을 입력해주세요."
-          name="job"
-          value={job}
-          onChange={handleChangeJob}
-        />
-      </FlexBox>
-      <NextButton margin="43px 0px 41px 0px">다음</NextButton>
-      {console.log(userInfo)}
-      {console.log(is)}
+          <FlexBox margin="42px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              이름
+            </IsSizeTextLabel>
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="이름을 입력하세요."
+              name="memberName"
+              value={memberName}
+              onChange={handleChangeName}
+            />
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              성별
+            </IsSizeTextLabel>
+            {userInfo.gender === "MALE" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickGender}
+                value="남성"
+              >
+                남성
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickGender}
+                value="남성"
+              >
+                남성
+              </FillButton>
+            )}
+            {userInfo.gender === "FEMALE" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 13px"
+                onClick={handleClickGender}
+                value="여성"
+              >
+                여성
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 13px"
+                onClick={handleClickGender}
+                value="여성"
+              >
+                여성
+              </FillButton>
+            )}
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              생년월일
+            </IsSizeTextLabel>
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="주민번호 앞자리 입력."
+              name="birth"
+              value={birth}
+              onChange={handleChangeBirth}
+            />
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              거주지
+            </IsSizeTextLabel>
+
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="거주지를 선택해주세요."
+              name="address"
+              value={address}
+              onClick={handleMapToggle}
+            />
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              활동명
+            </IsSizeTextLabel>
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="닉네임을 입력하세요."
+              name="nickname"
+              value={nickname}
+              onChange={handleChangeNickname}
+            />
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              자기소개
+            </IsSizeTextLabel>
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="간단한 자기소개"
+              name="introduction"
+              value={introduction}
+              onChange={handleChangeIntroduction}
+            />
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              결혼여부
+            </IsSizeTextLabel>
+            {userInfo.maritalStatus === "MARRIED" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickMarriage}
+                value="기혼"
+              >
+                기혼
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickMarriage}
+                value="기혼"
+              >
+                기혼
+              </FillButton>
+            )}
+            {userInfo.maritalStatus === "SINGLE" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 10px"
+                onClick={handleClickMarriage}
+                value="미혼"
+              >
+                미혼
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 10px"
+                onClick={handleClickMarriage}
+                value="미혼"
+              >
+                미혼
+              </FillButton>
+            )}
+            {userInfo.maritalStatus === "DIVORCED" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 10px"
+                onClick={handleClickMarriage}
+                value="기타"
+              >
+                기타
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="60px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 10px"
+                onClick={handleClickMarriage}
+                value="기타"
+              >
+                기타
+              </FillButton>
+            )}
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              자녀여부
+            </IsSizeTextLabel>
+            {userInfo.hasChildren === "YES" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickChildren}
+                value="있음"
+              >
+                있음
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                onClick={handleClickChildren}
+                value="있음"
+              >
+                있음
+              </FillButton>
+            )}
+            {userInfo.hasChildren === "NO" ? (
+              <FillButton
+                color="#fff"
+                backgroundColor="#FFA7A7"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 13px"
+                onClick={handleClickChildren}
+                value="없음"
+              >
+                없음
+              </FillButton>
+            ) : (
+              <FillButton
+                color="#1E1E1E"
+                backgroundColor="#fff"
+                borderRadius="4px"
+                width="95px"
+                height="32px"
+                fontSize="18px"
+                boxShadow="0px 0px 2px 0px rgba(0, 0, 0, 0.40)"
+                margin="0px 0px 0px 13px"
+                onClick={handleClickChildren}
+                value="없음"
+              >
+                없음
+              </FillButton>
+            )}
+          </FlexBox>
+          <FlexBox margin="35px 0px 0px 0px" style={{ alignSelf: "flex-start" }}>
+            <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
+              직업
+            </IsSizeTextLabel>
+            <TextInput
+              autoComplete="off"
+              fontSize="18px"
+              width="178px"
+              height="32px"
+              placeholder="직업을 입력해주세요."
+              name="job"
+              value={job}
+              onChange={handleChangeJob}
+            />
+          </FlexBox>
+          {is.isName &&
+          is.isGender &&
+          is.isBirth &&
+          is.isAddress &&
+          is.isNickname &&
+          is.isIntroduction &&
+          is.isMarriage &&
+          is.isChildren &&
+          is.isJob ? (
+            <NextButton
+              backgroundColor="#FFA7A7"
+              onClick={nextAdditionMove}
+              margin="43px 0px 41px 0px"
+            >
+              다음
+            </NextButton>
+          ) : (
+            <NextButton
+              backgroundColor="#8a8a8a"
+              onClick={nextAdditionMove}
+              margin="43px 0px 41px 0px"
+            >
+              다음
+            </NextButton>
+          )}
+        </>
+      )}
     </EmailSignupTotalComponent>
   );
 };
