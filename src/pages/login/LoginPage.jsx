@@ -45,6 +45,10 @@ const Login = () => {
         if (res.data.code === 200) {
           alert("로그인에 성공하셨습니다.");
           navigate("/");
+        } else if (res.data.code === 404) {
+          alert("존재하지 않는 회원입니다.");
+        } else if (res.data.code === 400) {
+          alert("잘못된 비밀번호입니다.");
         }
       });
     } catch (err) {
