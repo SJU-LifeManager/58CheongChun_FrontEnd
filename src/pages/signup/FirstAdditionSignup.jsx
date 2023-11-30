@@ -94,15 +94,16 @@ const FirstAdditionSignup = () => {
       ...userInfo,
       [name]: value,
     });
-    if (value === "") {
+    var regExp = /^\d{4}-\d{2}-\d{2}$/;
+    if (regExp.test(value)) {
       setIs({
         ...is,
-        isBirth: false,
+        isBirth: true,
       });
     } else {
       setIs({
         ...is,
-        isBirth: true,
+        isBirth: false,
       });
     }
   };
@@ -331,7 +332,7 @@ const FirstAdditionSignup = () => {
               fontSize="18px"
               width="178px"
               height="32px"
-              placeholder="주민번호 앞자리 입력."
+              placeholder="YYYY-MM-DD 형식"
               name="birth"
               value={birth}
               onChange={handleChangeBirth}
