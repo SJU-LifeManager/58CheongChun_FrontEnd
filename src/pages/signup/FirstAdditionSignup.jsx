@@ -17,7 +17,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FillButton } from "../../components/Button";
 import KakaoMap from "./KakaoMap";
-import UserImg from "../../assets/signup/User.png";
+import UserImg from "../../assets/main/OldPerson.svg";
 
 const FirstAdditionSignup = () => {
   const navigate = useNavigate();
