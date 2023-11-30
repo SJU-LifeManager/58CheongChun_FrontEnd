@@ -43,6 +43,8 @@ export const SignUpApi = (payload) => {
     birth: payload.birth,
     latitude: payload.latitude,
     longitude: payload.longitude,
+    // latitude: 128.12,
+    // longitude: 38.15,
     imgUrl: payload.imgUrl,
     // imgUrl: "firstImage",
   });

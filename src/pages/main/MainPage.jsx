@@ -8,7 +8,7 @@ import OldPerson from "../../assets/main/OldPerson.svg";
 
 const MainPage = () => {
   const [todayFriendsList, setTodayFriendsList] = useState(null);
-  // const today = new Date();
+  const today = new Date();
   const getTodayFriends = async () => {
     // try {
     //   await TodayFriendsApi().then((res) => {
@@ -21,7 +21,7 @@ const MainPage = () => {
     setTodayFriendsList([
       {
         nickname: "user6",
-        birth: "1999-08-11",
+        birth: "1996-08-11",
         latitude: 22.0,
         longitude: 22.0,
         personality: "activity",
@@ -48,6 +48,7 @@ const MainPage = () => {
       },
     ]);
   };
+
   useEffect(() => {
     getTodayFriends();
   }, []);
@@ -70,7 +71,7 @@ const MainPage = () => {
           return (
             <FriendBox key={item.nickname} backgroundImg={OldPerson} margin="16px 0px 0px 0px">
               <TextParagraph margin="280px 0px 0px 16px" fontWeight="700">
-                {item.nickname}, {item.birth}
+                {item.nickname}, {today.getFullYear() - parseInt(item.birth.substring(0, 4)) + 1}세
               </TextParagraph>
               <TextAlignRightDiv>
                 <NoWidthHeightButton
