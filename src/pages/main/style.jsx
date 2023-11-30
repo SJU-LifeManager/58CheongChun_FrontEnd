@@ -16,3 +16,20 @@ export const MainTotalComponent = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const FriendBox = styled.div`
+  width: 90%;
+  height: 360px;
+  border-radius: 6px;
+  opacity: 0.8;
+  background: linear-gradient(180deg, #000 0.25%, rgba(202, 201, 201, 0) 58.34%);
+`;
+
+export const TextParagraph = styled.p`
+  color: #fff;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: ${(props) => props.fontSize || "24px"};
+  font-weight: ${(props) => props.fontWeight || "500"};
+  line-height: 24px;
+`;

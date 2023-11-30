@@ -264,7 +264,7 @@ const SecondAddition = () => {
           } else if (res.data.code === 500) {
             alert("데이터베이스 저장에 실패하였습니다.");
           } else if (res.data.code === 200) {
-            navigate("/");
+            navigate("/main");
           }
         });
       } catch (err) {
