@@ -82,8 +82,8 @@ const KakaoMap = (props) => {
     props.setUserInfo({
       ...props.userInfo,
       address: selectedPlace.address,
-      latitude: selectedPlace.y,
-      longitude: selectedPlace.x,
+      latitude: parseFloat(selectedPlace.y),
+      longitude: parseFloat(selectedPlace.x),
       locationEnabled: true,
     });
     props.setIs({

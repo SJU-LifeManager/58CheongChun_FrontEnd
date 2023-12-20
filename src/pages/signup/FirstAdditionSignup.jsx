@@ -158,7 +158,7 @@ const FirstAdditionSignup = () => {
     const value = e.target.value;
     setUserInfo({
       ...userInfo,
-      hasChildren: value === "있음" ? "YES" : "NO",
+      hasChildren: value === "있음" ? true : false,
     });
     setIs({
       ...is,
@@ -484,7 +484,7 @@ const FirstAdditionSignup = () => {
             <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
               자녀여부
             </IsSizeTextLabel>
-            {userInfo.hasChildren === "YES" ? (
+            {userInfo.hasChildren === true ? (
               <FillButton
                 color="#fff"
                 backgroundColor="#FFA7A7"
@@ -513,7 +513,7 @@ const FirstAdditionSignup = () => {
                 있음
               </FillButton>
             )}
-            {userInfo.hasChildren === "NO" ? (
+            {userInfo.hasChildren === false ? (
               <FillButton
                 color="#fff"
                 backgroundColor="#FFA7A7"
