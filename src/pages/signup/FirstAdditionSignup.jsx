@@ -17,7 +17,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FillButton } from "../../components/Button";
 import KakaoMap from "./KakaoMap";
-import UserImg from "../../assets/signup/User.png";
+import UserImg from "../../assets/main/OldPerson.svg";
 
 const FirstAdditionSignup = () => {
   const navigate = useNavigate();
@@ -94,15 +94,16 @@ const FirstAdditionSignup = () => {
       ...userInfo,
       [name]: value,
     });
-    if (value === "") {
+    var regExp = /^\d{4}-\d{2}-\d{2}$/;
+    if (regExp.test(value)) {
       setIs({
         ...is,
-        isBirth: false,
+        isBirth: true,
       });
     } else {
       setIs({
         ...is,
-        isBirth: true,
+        isBirth: false,
       });
     }
   };
@@ -157,7 +158,7 @@ const FirstAdditionSignup = () => {
     const value = e.target.value;
     setUserInfo({
       ...userInfo,
-      hasChildren: value === "있음" ? "YES" : "NO",
+      hasChildren: value === "있음" ? true : false,
     });
     setIs({
       ...is,
@@ -331,7 +332,7 @@ const FirstAdditionSignup = () => {
               fontSize="18px"
               width="178px"
               height="32px"
-              placeholder="주민번호 앞자리 입력."
+              placeholder="YYYY-MM-DD 형식"
               name="birth"
               value={birth}
               onChange={handleChangeBirth}
@@ -483,7 +484,7 @@ const FirstAdditionSignup = () => {
             <IsSizeTextLabel fontSize="18px" margin="0px 0px 0px 30px">
               자녀여부
             </IsSizeTextLabel>
-            {userInfo.hasChildren === "YES" ? (
+            {userInfo.hasChildren === true ? (
               <FillButton
                 color="#fff"
                 backgroundColor="#FFA7A7"
@@ -512,7 +513,7 @@ const FirstAdditionSignup = () => {
                 있음
               </FillButton>
             )}
-            {userInfo.hasChildren === "NO" ? (
+            {userInfo.hasChildren === false ? (
               <FillButton
                 color="#fff"
                 backgroundColor="#FFA7A7"

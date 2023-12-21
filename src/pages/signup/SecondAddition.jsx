@@ -38,7 +38,7 @@ const SecondAddition = () => {
     if (e.target.value === "내성적인") {
       setUserInfo({
         ...userInfo,
-        personalityEI: "INTROVERSION",
+        personalityEI: "I",
       });
       setIs({
         ...is,
@@ -47,7 +47,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "외향적인") {
       setUserInfo({
         ...userInfo,
-        personalityEI: "EXTROVERSION",
+        personalityEI: "E",
       });
       setIs({
         ...is,
@@ -56,7 +56,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "감각적인") {
       setUserInfo({
         ...userInfo,
-        personalitySN: "SENSING",
+        personalitySN: "S",
       });
       setIs({
         ...is,
@@ -65,7 +65,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "직관적인") {
       setUserInfo({
         ...userInfo,
-        personalitySN: "INTUITION",
+        personalitySN: "N",
       });
       setIs({
         ...is,
@@ -74,7 +74,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "이성적인") {
       setUserInfo({
         ...userInfo,
-        personalityTF: "THINKING",
+        personalityTF: "T",
       });
       setIs({
         ...is,
@@ -83,7 +83,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "감성적인") {
       setUserInfo({
         ...userInfo,
-        personalityTF: "FEELING",
+        personalityTF: "F",
       });
       setIs({
         ...is,
@@ -92,7 +92,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "계획적인") {
       setUserInfo({
         ...userInfo,
-        personalityJP: "JUDGING",
+        personalityJP: "J",
       });
       setIs({
         ...is,
@@ -101,7 +101,7 @@ const SecondAddition = () => {
     } else if (e.target.value === "즉흥적인") {
       setUserInfo({
         ...userInfo,
-        personalityJP: "PERCEIVING",
+        personalityJP: "P",
       });
       setIs({
         ...is,
@@ -257,14 +257,14 @@ const SecondAddition = () => {
       try {
         await SignUpApi(userInfo).then((res) => {
           console.log(res);
-          if (res.data.code === 409) {
+          if (res.data.message === 409) {
             alert("이미 존재하는 회원입니다.");
           } else if (res.data.code === 400) {
             alert("휴면 계정입니다.");
           } else if (res.data.code === 500) {
             alert("데이터베이스 저장에 실패하였습니다.");
           } else if (res.data.code === 200) {
-            navigate("/");
+            navigate("/main");
           }
         });
       } catch (err) {
@@ -293,7 +293,7 @@ const SecondAddition = () => {
         </TextLabel>
         <DoubleGridBox>
           <div>
-            {userInfo.personalityEI === "INTROVERSION" ? (
+            {userInfo.personalityEI === "I" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -315,7 +315,7 @@ const SecondAddition = () => {
               </NoWidthHeightButton>
             )}
             <span>|</span>
-            {userInfo.personalityEI === "EXTROVERSION" ? (
+            {userInfo.personalityEI === "E" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -338,7 +338,7 @@ const SecondAddition = () => {
             )}
           </div>
           <div>
-            {userInfo.personalitySN === "SENSING" ? (
+            {userInfo.personalitySN === "S" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -360,7 +360,7 @@ const SecondAddition = () => {
               </NoWidthHeightButton>
             )}
             <span>|</span>
-            {userInfo.personalitySN === "INTUITION" ? (
+            {userInfo.personalitySN === "N" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -383,7 +383,7 @@ const SecondAddition = () => {
             )}
           </div>
           <div>
-            {userInfo.personalityTF === "THINKING" ? (
+            {userInfo.personalityTF === "T" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -405,7 +405,7 @@ const SecondAddition = () => {
               </NoWidthHeightButton>
             )}
             <span>|</span>
-            {userInfo.personalityTF === "FEELING" ? (
+            {userInfo.personalityTF === "F" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -428,7 +428,7 @@ const SecondAddition = () => {
             )}
           </div>
           <div>
-            {userInfo.personalityJP === "JUDGING" ? (
+            {userInfo.personalityJP === "J" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"
@@ -450,7 +450,7 @@ const SecondAddition = () => {
               </NoWidthHeightButton>
             )}
             <span>|</span>
-            {userInfo.personalityJP === "PERCEIVING" ? (
+            {userInfo.personalityJP === "P" ? (
               <NoWidthHeightButton
                 onClick={handleChangePersonality}
                 margin="4px 6px"

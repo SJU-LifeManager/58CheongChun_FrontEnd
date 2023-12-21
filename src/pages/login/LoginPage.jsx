@@ -42,9 +42,13 @@ const Login = () => {
     try {
       await LoginApi(loginInfo).then((res) => {
         console.log(res);
+        const authorizationHeader = res.headers.get("Authorization");
+
+        // 여기에서 토큰을 저장하거나 처리
+        console.log(authorizationHeader);
         if (res.data.code === 200) {
           alert("로그인에 성공하셨습니다.");
-          navigate("/");
+          navigate("/main");
         } else if (res.data.code === 404) {
           alert("존재하지 않는 회원입니다.");
         } else if (res.data.code === 400) {

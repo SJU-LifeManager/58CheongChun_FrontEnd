@@ -31,19 +31,16 @@ export const SignUpApi = (payload) => {
       relationType: payload.relationType,
       maritalStatus: payload.maritalStatus,
       hasChildren: payload.hasChildren,
-      personality: {
-        EI: payload.personalityEI,
-        SN: payload.personalitySN,
-        TF: payload.personalityTF,
-        JP: payload.personalityJP,
-      },
-      // personality: "ACTIVITY",
+      personality:
+        payload.personalityEI +
+        payload.personalitySN +
+        payload.personalityTF +
+        payload.personalityJP,
       hobby: payload.hobby,
     },
     birth: payload.birth,
-    latitude: payload.latitude,
-    longitude: payload.longitude,
+    latitude: parseFloat(payload.latitude),
+    longitude: parseFloat(payload.longitude),
     imgUrl: payload.imgUrl,
-    // imgUrl: "firstImage",
   });
 };

@@ -19,7 +19,6 @@ export const FillButton = styled.button`
 
 export const NoWidthHeightButton = styled.button`
   cursor: pointer;
-  padding: 3px 6px;
   text-align: center;
   font-family: "Pretendard";
   border: none;
@@ -29,5 +28,6 @@ export const NoWidthHeightButton = styled.button`
   font-weight: ${(props) => props.fontWeight || "600"};
   font-size: ${(props) => props.fontSize || "22px"};
   margin: ${(props) => props.margin || "0px"};
+  padding: ${(props) => props.padding || "3px 6px"};
   box-shadow: ${(props) => props.boxShadow || null};
 `;
