@@ -42,6 +42,10 @@ const Login = () => {
     try {
       await LoginApi(loginInfo).then((res) => {
         console.log(res);
+        const authorizationHeader = res.headers.get("Authorization");
+
+        // 여기에서 토큰을 저장하거나 처리
+        console.log(authorizationHeader);
         if (res.data.code === 200) {
           alert("로그인에 성공하셨습니다.");
           navigate("/main");

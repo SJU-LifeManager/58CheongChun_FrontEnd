@@ -11,6 +11,7 @@ export const HeaderDiv = styled.div`
   height: 48px;
   border-top: 1px solid #d9d9d9;
   border-bottom: 1px solid #d9d9d9;
+  background-color: #fff;
 `;
 export const IconImg = styled.img`
   width: 24px;
