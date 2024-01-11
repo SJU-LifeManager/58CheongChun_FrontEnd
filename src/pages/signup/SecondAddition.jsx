@@ -257,7 +257,7 @@ const SecondAddition = () => {
       try {
         await SignUpApi(userInfo).then((res) => {
           console.log(res);
-          if (res.data.message === 409) {
+          if (res.data.code === 409) {
             alert("이미 존재하는 회원입니다.");
           } else if (res.data.code === 400) {
             alert("휴면 계정입니다.");
