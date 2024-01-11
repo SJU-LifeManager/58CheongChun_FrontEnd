@@ -1,19 +1,26 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { FriendBox, MainTotalComponent, TextAlignRightDiv, TextParagraph } from "./style";
 import { Header } from "../../layouts/header/Header";
 import { Footer } from "../../layouts/footer/Footer";
 import { FillButton, NoWidthHeightButton } from "../../components/Button";
-// import { TodayFriendsApi } from "../../apis/FriendApi";
+import { TodayFriendsApi } from "../../apis/FriendApi";
 import OldPerson from "../../assets/main/OldPerson.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const MainPage = () => {
+  const navigate = useNavigate();
   const [todayFriendsList, setTodayFriendsList] = useState(null);
   const today = new Date();
+  const token = localStorage.getItem("token");
+  const [selectedNickname, setSelectedNickname] = useState("");
+
   const getTodayFriends = async () => {
     // try {
-    //   await TodayFriendsApi().then((res) => {
+    //   console.log(token);
+    //   await TodayFriendsApi(token).then((res) => {
     //     console.log(res);
-    //     setTodayFriendsList(res.data);
+    //     setTodayFriendsList(res.data.result);
     //   });
     // } catch (err) {
     //   console.log(err);
@@ -69,8 +76,20 @@ const MainPage = () => {
       {todayFriendsList !== null ? (
         todayFriendsList.map((item) => {
           return (
-            <FriendBox key={item.nickname} backgroundImg={OldPerson} margin="16px 0px 0px 0px">
-              <TextParagraph margin="280px 0px 0px 16px" fontWeight="700">
+            <FriendBox
+              onClick={() => {
+                navigate(`/friend/details`, {
+                  state: {
+                    nickname: item.nickname,
+                    birth: item.birth,
+                  },
+                });
+              }}
+              key={item.nickname}
+              backgroundImg={OldPerson}
+              margin="16px 0px 0px 0px"
+            >
+              <TextParagraph margin="280px 0px 0px 36px" fontWeight="700">
                 {item.nickname}, {today.getFullYear() - parseInt(item.birth.substring(0, 4)) + 1}세
               </TextParagraph>
               <TextAlignRightDiv>

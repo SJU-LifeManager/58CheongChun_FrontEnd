@@ -26,6 +26,7 @@ export const FriendBox = styled.div`
   background: linear-gradient(180deg, #000 0.25%, rgba(202, 201, 201, 0) 58.34%);
   background-repeat: no-repeat;
   background-size: cover;
+
   background-image: url(${(props) => props.backgroundImg || "none"});
   margin: ${(props) => props.margin || "0px"};
 `;
