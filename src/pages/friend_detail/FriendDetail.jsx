@@ -35,7 +35,7 @@ const MainPage = () => {
     birth: state.birth,
   });
   const [islike, setIslike] = useState(false);
-  const [isOpenLikeModal, setIsOpenLikeModal] = useState(true);
+  const [isOpenLikeModal, setIsOpenLikeModal] = useState(false);
   // const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
 
   const getFriendDetail = async () => {
@@ -54,6 +54,7 @@ const MainPage = () => {
         id: 11,
         nickname: "동찬",
         job: "학생",
+        islike: true,
         maritalStatus: "MARRIED",
         hasChildren: false,
         personality: "ACTIVITY",
@@ -63,6 +64,7 @@ const MainPage = () => {
         latitude: 123.20123,
         longitude: 123.123123,
       });
+      setIslike(userInfo.islike);
     } catch (err) {
       console.log(err);
     }
@@ -75,6 +77,10 @@ const MainPage = () => {
         if (res.data.code === 200) {
           setIslike(!islike);
           setIsOpenLikeModal(true);
+          setUserInfo({
+            ...userInfo,
+            islike: !islike,
+          });
         }
       });
     } catch (err) {
@@ -84,7 +90,7 @@ const MainPage = () => {
 
   useEffect(() => {
     getFriendDetail();
-  }, []);
+  }, [islike]);
 
   return (
     <MainTotalComponent padding="0px 0px 40px 0px">
