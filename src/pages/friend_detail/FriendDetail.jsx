@@ -36,7 +36,7 @@ const MainPage = () => {
   });
   const [islike, setIslike] = useState(false);
   const [isOpenLikeModal, setIsOpenLikeModal] = useState(true);
-  const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
+  // const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
 
   const getFriendDetail = async () => {
     try {
