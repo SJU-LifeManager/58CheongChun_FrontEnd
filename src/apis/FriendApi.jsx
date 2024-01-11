@@ -17,3 +17,15 @@ export const FriendsDetailApi = (nickname, token) => {
     },
   });
 };
+
+export const FriendLikeApi = (id, token) => {
+  return axios.post(
+    `${url}/like`,
+    { id: id },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+};

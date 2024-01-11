@@ -5,16 +5,24 @@ import { Footer } from "../../layouts/footer/Footer";
 import { MainTotalComponent } from "../main/style";
 import { useLocation } from "react-router-dom";
 import OldPerson from "../../assets/main/OldPerson.svg";
-import { FriendsDetailApi } from "../../apis/FriendApi";
+import BlankImg from "../../assets/detail/blankHeart.svg";
+import FillImg from "../../assets/detail/fillHeart.svg";
+import XButtonImg from "../../assets/signup/Xbutton.svg";
+import { FriendLikeApi, FriendsDetailApi } from "../../apis/FriendApi";
 import {
   AnswerBackgroundTextDiv,
   BackgroundTextDiv,
   FriendInfoComponent,
+  HeartImg,
+  ImgContainContainer,
   InfoBox,
+  ModalComponent,
+  ModalTextDiv,
   RequestFriendBtn,
   RowDivComponent,
   TextDiv,
   UserImg,
+  XImg,
 } from "./style";
 
 const MainPage = () => {
@@ -26,6 +34,9 @@ const MainPage = () => {
     nickname: state.nickname,
     birth: state.birth,
   });
+  const [islike, setIslike] = useState(false);
+  const [isOpenLikeModal, setIsOpenLikeModal] = useState(true);
+  const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
 
   const getFriendDetail = async () => {
     try {
@@ -57,15 +68,53 @@ const MainPage = () => {
     }
   };
 
+  const likeButton = async () => {
+    try {
+      await FriendLikeApi(userInfo.id, token).then((res) => {
+        console.log(res);
+        if (res.data.code === 200) {
+          setIslike(!islike);
+          setIsOpenLikeModal(true);
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     getFriendDetail();
   }, []);
 
   return (
-    <MainTotalComponent padding="0px 0px 50px 0px">
+    <MainTotalComponent padding="0px 0px 40px 0px">
       <Header />
+      {isOpenLikeModal ? (
+        <ModalComponent>
+          <XImg onClick={() => setIsOpenLikeModal(false)} src={XButtonImg} alt="X" />
+          <ModalTextDiv margin="32px 0px 0px 0px">
+            {islike ? "상대방에게 호감표시를 했습니다" : "호감 표시를 삭제했습니다"}
+          </ModalTextDiv>
+          <ModalTextDiv margin="12px 0px 0px 0px" fontSize="16px">
+            {islike
+              ? "내가 관심있는 친구 목록에 저장됐어요."
+              : "내가 관심있는 친구 목록에 삭제됐어요."}
+          </ModalTextDiv>
+        </ModalComponent>
+      ) : (
+        <></>
+      )}
+
       <FriendInfoComponent>
-        <UserImg src={userInfo.img} alt="profile"></UserImg>
+        <ImgContainContainer>
+          <UserImg src={userInfo.img} alt="profile" />
+          {islike ? (
+            <HeartImg onClick={likeButton} src={FillImg} alt="heart" />
+          ) : (
+            <HeartImg onClick={likeButton} src={BlankImg} alt="heart" />
+          )}
+        </ImgContainContainer>
+
         <InfoBox backgroundColor=" #FFEFF5" margin="14px 0px 0px 0px">
           <RowDivComponent margin="16px 0px 0px 0px">
             <TextDiv margin="0px 0px 0px 16px">{userInfo.nickname}</TextDiv>
