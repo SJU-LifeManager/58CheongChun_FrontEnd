@@ -130,12 +130,12 @@ export const ModalComponent = styled.div`
   align-items: center;
   position: fixed;
   top: 36%;
-  width: 296px;
-  height: 104px;
   flex-shrink: 0;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  width: 296px;
+  height: ${(props) => props.height || "104px"};
 `;
 
 export const ModalTextDiv = styled.div`
@@ -146,4 +146,21 @@ export const ModalTextDiv = styled.div`
   line-height: 14px; /* 70% */
   font-size: ${(props) => props.fontSize || "20px"};
   margin: ${(props) => props.margin || "0px"};
+`;
+
+export const InsideModalBtn = styled.button`
+  width: 74px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #e6e6e6;
+  border: none;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  color: #000;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 100% */
+  margin: 28px 15px;
 `;

@@ -29,3 +29,17 @@ export const FriendLikeApi = (id, token) => {
     },
   );
 };
+
+export const ApplyFriendApi = (id, token) => {
+  return axios.post(
+    `${url}/request-friend`,
+    {
+      id: id,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+};

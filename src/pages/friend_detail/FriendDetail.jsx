@@ -8,7 +8,7 @@ import OldPerson from "../../assets/main/OldPerson.svg";
 import BlankImg from "../../assets/detail/blankHeart.svg";
 import FillImg from "../../assets/detail/fillHeart.svg";
 import XButtonImg from "../../assets/signup/Xbutton.svg";
-import { FriendLikeApi, FriendsDetailApi } from "../../apis/FriendApi";
+import { ApplyFriendApi, FriendLikeApi, FriendsDetailApi } from "../../apis/FriendApi";
 import {
   AnswerBackgroundTextDiv,
   BackgroundTextDiv,
@@ -16,6 +16,7 @@ import {
   HeartImg,
   ImgContainContainer,
   InfoBox,
+  InsideModalBtn,
   ModalComponent,
   ModalTextDiv,
   RequestFriendBtn,
@@ -36,7 +37,9 @@ const MainPage = () => {
   });
   const [islike, setIslike] = useState(false);
   const [isOpenLikeModal, setIsOpenLikeModal] = useState(false);
-  // const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
+  const [isOpenFriendModal, setIsOpenFriendModal] = useState(false);
+  const [isOpenResultFriendModal, setIsOpenResultFriendModal] = useState(false);
+  const [resultFriendMessage, setResultFriendMessage] = useState("");
 
   const getFriendDetail = async () => {
     try {
@@ -88,6 +91,29 @@ const MainPage = () => {
     }
   };
 
+  const openApplyFriendModal = () => {
+    setIsOpenFriendModal(true);
+  };
+
+  const applyFriend = async () => {
+    try {
+      await ApplyFriendApi(userInfo.id, token).then((res) => {
+        console.log(res);
+        setIsOpenFriendModal(false);
+        setIsOpenResultFriendModal(true);
+
+        if (res.data.code === 200) {
+          setResultFriendMessage("상대방이 요청을 받으면 친구목록에 추가돼요");
+        } else if (res.data.code === 409) {
+          setResultFriendMessage("이미 친구 요청을 보냈습니다.");
+        }
+      });
+    } catch (err) {
+      console.log(err);
+      setIsOpenFriendModal(false);
+    }
+  };
+
   useEffect(() => {
     getFriendDetail();
   }, [islike]);
@@ -98,13 +124,35 @@ const MainPage = () => {
       {isOpenLikeModal ? (
         <ModalComponent>
           <XImg onClick={() => setIsOpenLikeModal(false)} src={XButtonImg} alt="X" />
-          <ModalTextDiv margin="32px 0px 0px 0px">
-            {islike ? "상대방에게 호감표시를 했습니다" : "호감 표시를 삭제했습니다"}
-          </ModalTextDiv>
+          <ModalTextDiv margin="32px 0px 0px 0px">친구요청을 완료했습니다.</ModalTextDiv>
           <ModalTextDiv margin="12px 0px 0px 0px" fontSize="16px">
-            {islike
-              ? "내가 관심있는 친구 목록에 저장됐어요."
-              : "내가 관심있는 친구 목록에 삭제됐어요."}
+            {resultFriendMessage}
+          </ModalTextDiv>
+        </ModalComponent>
+      ) : (
+        <></>
+      )}
+      {isOpenFriendModal ? (
+        <ModalComponent height="164px">
+          <XImg onClick={() => setIsOpenFriendModal(false)} src={XButtonImg} alt="X" />
+          <ModalTextDiv margin="32px 0px 0px 0px">친구요청을 할까요?</ModalTextDiv>
+          <ModalTextDiv margin="16px 0px 0px 0px" fontSize="16px">
+            다이아 2개가 소모됩니다.
+          </ModalTextDiv>
+          <div>
+            <InsideModalBtn onClick={applyFriend}>네</InsideModalBtn>
+            <InsideModalBtn onClick={() => setIsOpenFriendModal(false)}>아니오</InsideModalBtn>
+          </div>
+        </ModalComponent>
+      ) : (
+        <></>
+      )}
+      {isOpenResultFriendModal ? (
+        <ModalComponent>
+          <XImg onClick={() => setIsOpenResultFriendModal(false)} src={XButtonImg} alt="X" />
+          <ModalTextDiv margin="32px 0px 0px 0px">친구요청을 완료했습니다.</ModalTextDiv>
+          <ModalTextDiv margin="12px 0px 0px 0px" fontSize="16px">
+            {resultFriendMessage}
           </ModalTextDiv>
         </ModalComponent>
       ) : (
@@ -226,7 +274,7 @@ const MainPage = () => {
             </AnswerBackgroundTextDiv>
           </RowDivComponent>
         </InfoBox>
-        <RequestFriendBtn>친구요청</RequestFriendBtn>
+        <RequestFriendBtn onClick={openApplyFriendModal}>친구요청</RequestFriendBtn>
       </FriendInfoComponent>
 
       <Footer />
