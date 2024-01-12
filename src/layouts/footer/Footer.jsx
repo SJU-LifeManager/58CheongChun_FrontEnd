@@ -5,14 +5,17 @@ import Person from "../../assets/footer/Person.svg";
 import Awesome from "../../assets/footer/Awesome.svg";
 import Chat from "../../assets/footer/Chat.svg";
 import Profile from "../../assets/footer/Profile.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <FooterDiv>
-      <IconBox>
-        <IconImg src={Search} alt="search" />
-        <IconText>친구찾기</IconText>
-      </IconBox>
+      <Link to="/friend/search" style={{ textDecoration: "none", color: "black" }}>
+        <IconBox>
+          <IconImg src={Search} alt="search" />
+          <IconText>친구찾기</IconText>
+        </IconBox>
+      </Link>
       <IconBox>
         <IconImg src={Person} alt="person" />
         <IconText>친구목록</IconText>

@@ -44,3 +44,11 @@ export const SignUpApi = (payload) => {
     imgUrl: payload.imgUrl,
   });
 };
+
+export const GetUserInfoApi = (token) => {
+  return axios.get(`${url}/mypage`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

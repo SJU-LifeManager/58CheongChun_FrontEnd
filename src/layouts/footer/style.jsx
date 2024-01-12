@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const FooterDiv = styled.div`
   position: fixed;
+  z-index: 5;
   bottom: 47px;
   display: flex;
   align-items: center;
@@ -22,6 +23,7 @@ export const IconBox = styled.div`
   align-items: center;
   width: 56px;
   height: 100%;
+  cursor: pointer;
 `;
 export const IconImg = styled.img`
   width: 28px;

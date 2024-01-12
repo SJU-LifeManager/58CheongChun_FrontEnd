@@ -9,7 +9,8 @@ import PhoneSignup from "./pages/signup/PhoneSignup";
 import FirstAdditionSignup from "./pages/signup/FirstAdditionSignup";
 import SecondAddition from "./pages/signup/SecondAddition";
 import MainPage from "./pages/main/MainPage";
-import FreindDetail from "./pages/friend_detail/FriendDetail";
+import DetailPage from "./pages/friend_detail/FriendDetail";
+import FriendSearchPage from "./pages/friend_search/FriendSearch";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
           <Route path="/signup/additionInfo" element={<FirstAdditionSignup />}></Route>
           <Route path="/signup/nextAdditionInfo" element={<SecondAddition />}></Route>
           <Route path="/main" element={<MainPage />}></Route>
-          <Route path="/friend/details" element={<FreindDetail />}></Route>
+          <Route path="/friend/details" element={<DetailPage />}></Route>
+          <Route path="/friend/search" element={<FriendSearchPage />}></Route>
         </Routes>
       </Router>
     </div>
