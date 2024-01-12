@@ -11,13 +11,27 @@ import {
   LinkFriendListComponent,
   LinkFriendListDiv,
   RowDivComponent,
+  TotalComponent,
 } from "./style";
 import { GetUserInfoApi } from "../../apis/UserApi";
 import { NoWidthHeightButton } from "../../components/Button";
 const FriendSearchPage = () => {
   const token = localStorage.getItem("token");
   const today = new Date();
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    birth: "",
+    blockMemberNumber: 0,
+    hasChildren: false,
+    hobby: "",
+    imageUrl: "",
+    introduction: "",
+    job: "",
+    latitude: 0,
+    longitude: 0,
+    maritalStatus: "",
+    nickname: "",
+    personality: "",
+  });
   const getUserInfo = async () => {
     try {
       setUserInfo({
@@ -52,8 +66,8 @@ const FriendSearchPage = () => {
       <FriendInfoComponent>
         <FriendBox backgroundImg={userInfo.imageUrl} margin="16px 0px 0px 0px">
           <TextParagraph margin="280px 0px 0px 26px" fontWeight="700">
-            {userInfo.nickname},{" "}
-            {today.getFullYear() - parseInt(userInfo.birth.substring(0, 4)) + 1}세
+            {userInfo.nickname},{today.getFullYear() - parseInt(userInfo.birth.substring(0, 4)) + 1}
+            세
           </TextParagraph>
           <TextAlignRightDiv>
             <NoWidthHeightButton
@@ -126,7 +140,6 @@ const FriendSearchPage = () => {
             </NoWidthHeightButton>
           </TextAlignRightDiv>
         </FriendBox>
-        <BackgroundText margin="16px 0px 0px 0px">친구추천 더 받기</BackgroundText>
         <BackgroundText
           margin="16px 0px 0px 5%"
           width="190px"
@@ -145,6 +158,7 @@ const FriendSearchPage = () => {
         <LinkFriendListComponent margin="12px 0px 0px 0px">
           <InnerLinkFriendText>우리 동네 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
+        <BackgroundText margin="16px 0px 0px 0px">직접 찾기</BackgroundText>
       </FriendInfoComponent>
       <Footer />
     </MainTotalComponent>

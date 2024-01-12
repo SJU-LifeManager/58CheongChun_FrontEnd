@@ -9,7 +9,7 @@ export const RowDivComponent = styled.div`
 
 export const FriendInfoComponent = styled.div`
   width: 98%;
-  height: 1000px;
+  height: 830px;
   margin-top: 90px;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,7 @@ export const BackgroundText = styled.div`
   line-height: 18px; /* 100% */
   flex-shrink: 0;
   border-radius: 8px;
+  cursor: pointer;
   background-color: ${(props) => props.backgroundColor || "#ffa7a7"};
   width: ${(props) => props.width || "286px"};
   height: ${(props) => props.height || "38px"};
@@ -43,6 +44,8 @@ export const LinkFriendListComponent = styled.div`
   flex-shrink: 0;
   border-radius: 8px;
   background: #ffeff5;
+  cursor: pointer;
+
   margin: ${(props) => props.margin || "16px 0px 0px 0px"};
 `;
 
