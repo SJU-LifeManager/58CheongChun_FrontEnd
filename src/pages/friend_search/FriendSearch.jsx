@@ -4,9 +4,13 @@ import { Header } from "../../layouts/header/Header";
 import { Footer } from "../../layouts/footer/Footer";
 import { FriendBox, MainTotalComponent, TextAlignRightDiv, TextParagraph } from "../main/style";
 import OldPerson from "../../assets/main/OldPerson.svg";
+import Favorite from "../../assets/search/Favorite.svg";
+import Star from "../../assets/search/Star.svg";
+import Pin from "../../assets/search/Pin.svg";
 import {
   BackgroundText,
   FriendInfoComponent,
+  InnerLinkFriendImg,
   InnerLinkFriendText,
   LinkFriendListComponent,
   LinkFriendListDiv,
@@ -15,6 +19,7 @@ import {
 } from "./style";
 import { GetUserInfoApi } from "../../apis/UserApi";
 import { NoWidthHeightButton } from "../../components/Button";
+
 const FriendSearchPage = () => {
   const token = localStorage.getItem("token");
   const today = new Date();
@@ -150,12 +155,16 @@ const FriendSearchPage = () => {
           나에게 꼭 맞는 친구 찾기
         </BackgroundText>
         <LinkFriendListComponent>
+          <InnerLinkFriendImg src={Favorite} alt="heart" />
           <InnerLinkFriendText>내가 호감 표시한 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
         <LinkFriendListComponent margin="12px 0px 0px 0px">
+          <InnerLinkFriendImg src={Star} alt="star" />
+
           <InnerLinkFriendText>내 취향 반영 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
         <LinkFriendListComponent margin="12px 0px 0px 0px">
+          <InnerLinkFriendImg src={Pin} alt="pin" />
           <InnerLinkFriendText>우리 동네 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
         <BackgroundText margin="16px 0px 0px 0px">직접 찾기</BackgroundText>

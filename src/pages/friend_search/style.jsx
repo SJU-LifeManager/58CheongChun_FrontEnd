@@ -63,4 +63,5 @@ export const InnerLinkFriendImg = styled.img`
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  margin: 0px 12px 0px 16px;
 `;
