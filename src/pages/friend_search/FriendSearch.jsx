@@ -18,7 +18,7 @@ import {
   TotalComponent,
 } from "./style";
 import { GetUserInfoApi } from "../../apis/UserApi";
-import { NoWidthHeightButton } from "../../components/Button";
+import { NoWidthHeightButton } from "../../components/button";
 import { useNavigate } from "react-router-dom";
 
 const FriendSearchPage = () => {

@@ -15,7 +15,7 @@ import {
   TextLabel,
 } from "./style";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FillButton } from "../../components/Button";
+import { FillButton } from "../../components/button";
 import KakaoMap from "./KakaoMap";
 import UserImg from "../../assets/main/OldPerson.svg";
 

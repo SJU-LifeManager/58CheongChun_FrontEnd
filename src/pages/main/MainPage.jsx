@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FriendBox, MainTotalComponent, TextAlignRightDiv, TextParagraph } from "./style";
 import { Header } from "../../layouts/header/Header";
 import { Footer } from "../../layouts/footer/Footer";
-import { FillButton, NoWidthHeightButton } from "../../components/Button";
+import { FillButton, NoWidthHeightButton } from "../../components/button";
 import { TodayFriendsApi } from "../../apis/FriendApi";
 import OldPerson from "../../assets/main/OldPerson.svg";
 import { Link, useNavigate } from "react-router-dom";
