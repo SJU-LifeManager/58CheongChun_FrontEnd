@@ -1,10 +1,10 @@
 import { FlexBox, LandingBox, LandingBoxBottom, LandingComponent } from "./style";
-import boxBackgroundImg from "../../assets/landing/BoxBackgroundImg.png";
-import boxBottomBackgroundImg from "../../assets/landing/BoxBottomBackgroundImg.png";
-import phoneImg1 from "../../assets/landing/PhoneImg1.png";
-import phoneImg2 from "../../assets/landing/PhoneImg2.png";
-import phoneImg3 from "../../assets/landing/PhoneImg3.png";
-import { FillButton } from "../../components/Button";
+import boxBackgroundImg from "../../assets/landing/boxBackgroundImg.png";
+import boxBottomBackgroundImg from "../../assets/landing/boxBottomBackgroundImg.png";
+import phoneImg1 from "../../assets/landing/phoneImg1.png";
+import phoneImg2 from "../../assets/landing/phoneImg2.png";
+import phoneImg3 from "../../assets/landing/phoneImg3.png";
+import { FillButton } from "../../components/button";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/react-in-jsx-scope */

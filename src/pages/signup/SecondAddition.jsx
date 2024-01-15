@@ -10,7 +10,7 @@ import {
   NextButton,
 } from "./style";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { NoWidthHeightButton } from "../../components/Button";
+import { NoWidthHeightButton } from "../../components/button";
 import { SignUpApi } from "../../apis/UserApi";
 
 const SecondAddition = () => {

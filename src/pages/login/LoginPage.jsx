@@ -10,9 +10,9 @@ import {
   SignupToggleBar,
   ExitButton,
 } from "./style";
-import { FillButton } from "../../components/Button";
-import kakao from "../../assets/login/Kakao.png";
-import naver from "../../assets/login/Naver.png";
+import { FillButton } from "../../components/button";
+import kakao from "../../assets/login/kakao.png";
+import naver from "../../assets/login/naver.png";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginApi } from "../../apis/UserApi";
 
