@@ -11,6 +11,10 @@ import SecondAddition from "./pages/signup/SecondAddition";
 import MainPage from "./pages/main/MainPage";
 import DetailPage from "./pages/friend_detail/FriendDetail";
 import FriendSearchPage from "./pages/friend_search/FriendSearch";
+import LikedFriendPage from "./pages/friend_search/LikedFriends";
+import SameHobbyFriendPage from "./pages/friend_search/SameHobbyFriends";
+import SameRegionFriendPage from "./pages/friend_search/SameRegionFriends";
+import DirectFriendSearchPage from "./pages/friend_search/DirectFriendSearch";
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
           <Route path="/main" element={<MainPage />}></Route>
           <Route path="/friend/details" element={<DetailPage />}></Route>
           <Route path="/friend/search" element={<FriendSearchPage />}></Route>
+          <Route path="/friend/like" element={<LikedFriendPage />}></Route>
+          <Route path="/friend/hobby" element={<SameHobbyFriendPage />}></Route>
+          <Route path="/friend/region" element={<SameRegionFriendPage />}></Route>
+          <Route path="/friend/directSearch" element={<DirectFriendSearchPage />}></Route>
         </Routes>
       </Router>
     </div>

@@ -23,6 +23,7 @@ export const FriendBox = styled.div`
   height: 360px;
   border-radius: 6px;
   cursor: pointer;
+
   background: linear-gradient(180deg, #000 0.25%, rgba(202, 201, 201, 0) 58.34%);
   background-repeat: no-repeat;
   background-size: cover;

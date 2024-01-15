@@ -19,10 +19,12 @@ import {
 } from "./style";
 import { GetUserInfoApi } from "../../apis/UserApi";
 import { NoWidthHeightButton } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const FriendSearchPage = () => {
   const token = localStorage.getItem("token");
   const today = new Date();
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({
     birth: "",
     blockMemberNumber: 0,
@@ -154,20 +156,42 @@ const FriendSearchPage = () => {
         >
           나에게 꼭 맞는 친구 찾기
         </BackgroundText>
-        <LinkFriendListComponent>
+        <LinkFriendListComponent
+          onClick={() => {
+            navigate("/friend/like");
+          }}
+        >
           <InnerLinkFriendImg src={Favorite} alt="heart" />
           <InnerLinkFriendText>내가 호감 표시한 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
-        <LinkFriendListComponent margin="12px 0px 0px 0px">
+        <LinkFriendListComponent
+          onClick={() => {
+            navigate("/friend/hobby");
+          }}
+          margin="12px 0px 0px 0px"
+        >
           <InnerLinkFriendImg src={Star} alt="star" />
 
           <InnerLinkFriendText>내 취향 반영 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
-        <LinkFriendListComponent margin="12px 0px 0px 0px">
+        <LinkFriendListComponent
+          onClick={() => {
+            navigate("/friend/region");
+          }}
+          margin="12px 0px 0px 0px"
+        >
           <InnerLinkFriendImg src={Pin} alt="pin" />
           <InnerLinkFriendText>우리 동네 친구</InnerLinkFriendText>
         </LinkFriendListComponent>
-        <BackgroundText margin="16px 0px 0px 0px">직접 찾기</BackgroundText>
+
+        <BackgroundText
+          onClick={() => {
+            navigate("/friend/directSearch");
+          }}
+          margin="16px 0px 0px 0px"
+        >
+          직접 찾기
+        </BackgroundText>
       </FriendInfoComponent>
       <Footer />
     </MainTotalComponent>
