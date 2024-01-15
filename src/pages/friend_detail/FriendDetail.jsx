@@ -26,7 +26,7 @@ import {
   XImg,
 } from "./style";
 
-const MainPage = () => {
+const DetailPage = () => {
   const { state } = useLocation();
   const token = localStorage.getItem("token");
   const today = new Date();
@@ -282,4 +282,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default DetailPage;

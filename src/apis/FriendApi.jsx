@@ -43,3 +43,11 @@ export const ApplyFriendApi = (id, token) => {
     },
   );
 };
+
+export const InsideDistanceFriendsApi = (distance, token) => {
+  return axios.get(`${url}/friends/distance?distance=${distance}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

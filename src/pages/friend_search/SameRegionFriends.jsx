@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { FriendBox, MainTotalComponent, TextAlignRightDiv, TextParagraph } from "./style";
+import { FriendBox, MainTotalComponent, TextAlignRightDiv, TextParagraph } from "../main/style";
 import { Header } from "../../layouts/header/Header";
 import { Footer } from "../../layouts/footer/Footer";
 import { FillButton, NoWidthHeightButton } from "../../components/Button";
-import { TodayFriendsApi } from "../../apis/FriendApi";
+import { InsideDistanceFriendsApi, TodayFriendsApi } from "../../apis/FriendApi";
 import OldPerson from "../../assets/main/OldPerson.svg";
 import { Link, useNavigate } from "react-router-dom";
 
-const MainPage = () => {
+const SameRegionFriendPage = () => {
   const navigate = useNavigate();
   const [todayFriendsList, setTodayFriendsList] = useState(null);
   const today = new Date();
@@ -18,7 +18,7 @@ const MainPage = () => {
   const getTodayFriends = async () => {
     // try {
     //   console.log(token);
-    //   await TodayFriendsApi(token).then((res) => {
+    //   await InsideDistanceFriendsApi("10", token).then((res) => {
     //     console.log(res);
     //     setTodayFriendsList(res.data.result);
     //   });
@@ -72,12 +72,12 @@ const MainPage = () => {
       <FillButton
         margin="86px 0px 0px 16px"
         fontSize="18px"
-        width="134px"
+        width="170px"
         height="34px"
         backgroundColor="#ffa7a7"
         style={{ alignSelf: "flex-start" }}
       >
-        오늘의 친구 추천
+        우리 동네 친구
       </FillButton>
       {todayFriendsList !== null ? (
         todayFriendsList.map((item) => {
@@ -179,4 +179,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default SameRegionFriendPage;
